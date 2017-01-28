@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="一条爱钻研的技术dog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Guoch">
-<meta property="og:url" content="http://www.vituyun.com/index.html">
+<meta name="description" content="JavaScript 数组去重数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过 === 比较返回 true 的视为相同元素，需要去重，所以，1 和 “1” 是不同的元素，1 和 new Number(1) 是不同的元素，{} 和 {} 是不同的元素（引用不同）。（当然如果需求认为 {} 和 {} 算作相同的元素，那么解法就不一样了）###方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 数组去重">
+<meta property="og:url" content="http://www.vituyun.com/2017/01/28/JavaScript数组去重/index.html">
 <meta property="og:site_name" content="Guoch">
-<meta property="og:description" content="一条爱钻研的技术dog">
+<meta property="og:description" content="JavaScript 数组去重数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过 === 比较返回 true 的视为相同元素，需要去重，所以，1 和 “1” 是不同的元素，1 和 new Number(1) 是不同的元素，{} 和 {} 是不同的元素（引用不同）。（当然如果需求认为 {} 和 {} 算作相同的元素，那么解法就不一样了）###方法">
+<meta property="og:updated_time" content="2017-01-28T05:32:14.431Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Guoch">
-<meta name="twitter:description" content="一条爱钻研的技术dog">
+<meta name="twitter:title" content="JavaScript 数组去重">
+<meta name="twitter:description" content="JavaScript 数组去重数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过 === 比较返回 true 的视为相同元素，需要去重，所以，1 和 “1” 是不同的元素，1 和 new Number(1) 是不同的元素，{} 和 {} 是不同的元素（引用不同）。（当然如果需求认为 {} 和 {} 算作相同的元素，那么解法就不一样了）###方法">
 
 
 
@@ -120,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://www.vituyun.com/"/>
+  <link rel="canonical" href="http://www.vituyun.com/2017/01/28/JavaScript数组去重/"/>
 
 
 
 
 
-  <title> Guoch </title>
+  <title> JavaScript 数组去重 | Guoch </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -147,9 +148,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -240,9 +239,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -275,10 +274,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/01/28/JavaScript数组去重/" itemprop="url">
-                  JavaScript 数组去重
-                </a>
+                JavaScript 数组去重
               
             
           </h1>
@@ -329,9 +325,7 @@
       
 
       
-        
-          
-            <h1 id="JavaScript-数组去重"><a href="#JavaScript-数组去重" class="headerlink" title="JavaScript 数组去重"></a>JavaScript 数组去重</h1><h5 id="数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过-比较返回-true-的视为相同元素，需要去重，所以，1-和-“1”-是不同的元素，1-和-new-Number-1-是不同的元素，-和-是不同的元素（引用不同）。（当然如果需求认为-和-算作相同的元素，那么解法就不一样了）"><a href="#数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过-比较返回-true-的视为相同元素，需要去重，所以，1-和-“1”-是不同的元素，1-和-new-Number-1-是不同的元素，-和-是不同的元素（引用不同）。（当然如果需求认为-和-算作相同的元素，那么解法就不一样了）" class="headerlink" title="数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过 === 比较返回 true 的视为相同元素，需要去重，所以，1 和 “1” 是不同的元素，1 和 new Number(1) 是不同的元素，{} 和 {} 是不同的元素（引用不同）。（当然如果需求认为 {} 和 {} 算作相同的元素，那么解法就不一样了）"></a>数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过 === 比较返回 true 的视为相同元素，需要去重，所以，1 和 “1” 是不同的元素，1 和 new Number(1) 是不同的元素，{} 和 {} 是不同的元素（引用不同）。（当然如果需求认为 {} 和 {} 算作相同的元素，那么解法就不一样了）</h5><p>###方法一</p>
+        <h1 id="JavaScript-数组去重"><a href="#JavaScript-数组去重" class="headerlink" title="JavaScript 数组去重"></a>JavaScript 数组去重</h1><h5 id="数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过-比较返回-true-的视为相同元素，需要去重，所以，1-和-“1”-是不同的元素，1-和-new-Number-1-是不同的元素，-和-是不同的元素（引用不同）。（当然如果需求认为-和-算作相同的元素，那么解法就不一样了）"><a href="#数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过-比较返回-true-的视为相同元素，需要去重，所以，1-和-“1”-是不同的元素，1-和-new-Number-1-是不同的元素，-和-是不同的元素（引用不同）。（当然如果需求认为-和-算作相同的元素，那么解法就不一样了）" class="headerlink" title="数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过 === 比较返回 true 的视为相同元素，需要去重，所以，1 和 “1” 是不同的元素，1 和 new Number(1) 是不同的元素，{} 和 {} 是不同的元素（引用不同）。（当然如果需求认为 {} 和 {} 算作相同的元素，那么解法就不一样了）"></a>数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过 === 比较返回 true 的视为相同元素，需要去重，所以，1 和 “1” 是不同的元素，1 和 new Number(1) 是不同的元素，{} 和 {} 是不同的元素（引用不同）。（当然如果需求认为 {} 和 {} 算作相同的元素，那么解法就不一样了）</h5><p>###方法一</p>
 <h5 id="无需思考，我们可以得到-O-n-2-复杂度的解法。定义一个变量数组-res-保存结果，遍历需要去重的数组，如果该元素已经存在在-res-中了，则说明是重复的元素，如果没有，则放入-res-中。"><a href="#无需思考，我们可以得到-O-n-2-复杂度的解法。定义一个变量数组-res-保存结果，遍历需要去重的数组，如果该元素已经存在在-res-中了，则说明是重复的元素，如果没有，则放入-res-中。" class="headerlink" title="无需思考，我们可以得到 O(n^2) 复杂度的解法。定义一个变量数组 res 保存结果，遍历需要去重的数组，如果该元素已经存在在 res 中了，则说明是重复的元素，如果没有，则放入 res 中。"></a>无需思考，我们可以得到 O(n^2) 复杂度的解法。定义一个变量数组 res 保存结果，遍历需要去重的数组，如果该元素已经存在在 res 中了，则说明是重复的元素，如果没有，则放入 res 中。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> res = [];</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = a.length; i &lt; len; i++) &#123;</div><div class="line">    <span class="keyword">var</span> item = a[i];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>, jLen = res.length; j &lt; jLen; j++) &#123;</div><div class="line">      <span class="keyword">if</span> (res[j] === item)</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (j === jLen)</div><div class="line">      res.push(item);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">1</span>, <span class="string">'1'</span>, <span class="string">'2'</span>, <span class="number">1</span>];</div><div class="line"><span class="keyword">var</span> ans = unique(a);</div><div class="line"><span class="built_in">console</span>.log(ans); <span class="comment">// =&gt; [1, "1", "2"]</span></div></pre></td></tr></table></figure>
 <h5 id="代码非常简单，那么是否能更简洁些？如果不考虑浏览器兼容，我们可以用-ES5-提供的-Array-prototype-indexOf-方法来简化代码。"><a href="#代码非常简单，那么是否能更简洁些？如果不考虑浏览器兼容，我们可以用-ES5-提供的-Array-prototype-indexOf-方法来简化代码。" class="headerlink" title="代码非常简单，那么是否能更简洁些？如果不考虑浏览器兼容，我们可以用 ES5 提供的 Array.prototype.indexOf 方法来简化代码。"></a>代码非常简单，那么是否能更简洁些？如果不考虑浏览器兼容，我们可以用 ES5 提供的 Array.prototype.indexOf 方法来简化代码。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> res = [];</div><div class="line"></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = a.length; i &lt; len; i++) &#123;</div><div class="line">    <span class="keyword">var</span> item = a[i];</div><div class="line"></div><div class="line">    (res.indexOf(item) === <span class="number">-1</span>) &amp;&amp; res.push(item);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">1</span>, <span class="string">'1'</span>, <span class="string">'2'</span>, <span class="number">1</span>];</div><div class="line"><span class="keyword">var</span> ans = unique(a);</div><div class="line"><span class="built_in">console</span>.log(ans); <span class="comment">// =&gt; [1, "1", "2"]</span></div></pre></td></tr></table></figure>
 <h5 id="既然用了-indexOf，那么不妨再加上-filter。"><a href="#既然用了-indexOf，那么不妨再加上-filter。" class="headerlink" title="既然用了 indexOf，那么不妨再加上 filter。"></a>既然用了 indexOf，那么不妨再加上 filter。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">a</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> res = a.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item, index, array</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> array.indexOf(item) === index;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> res;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">1</span>, <span class="string">'1'</span>, <span class="string">'2'</span>, <span class="number">1</span>];</div><div class="line"><span class="keyword">var</span> ans = unique(a);</div><div class="line"><span class="built_in">console</span>.log(ans); <span class="comment">// =&gt; [1, "1", "2"]</span></div></pre></td></tr></table></figure>
@@ -345,16 +339,20 @@
 <h5 id="但是如果数组元素全部是基础类型的-Number-值，键值对法应该是最高效的！"><a href="#但是如果数组元素全部是基础类型的-Number-值，键值对法应该是最高效的！" class="headerlink" title="但是如果数组元素全部是基础类型的 Number 值，键值对法应该是最高效的！"></a>但是如果数组元素全部是基础类型的 Number 值，键值对法应该是最高效的！</h5><h3 id="方法五-（ES6）"><a href="#方法五-（ES6）" class="headerlink" title="方法五 （ES6）"></a>方法五 （ES6）</h3><h5 id="ES6-部署了-Set-以及-Array-from-方法，太强大了！如果浏览器支持，完全可以这样："><a href="#ES6-部署了-Set-以及-Array-from-方法，太强大了！如果浏览器支持，完全可以这样：" class="headerlink" title="ES6 部署了 Set 以及 Array.from 方法，太强大了！如果浏览器支持，完全可以这样："></a>ES6 部署了 Set 以及 Array.from 方法，太强大了！如果浏览器支持，完全可以这样：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(a));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = [&#123;<span class="attr">name</span>: <span class="string">"hanzichi"</span>&#125;, &#123;<span class="attr">age</span>: <span class="number">30</span>&#125;, <span class="keyword">new</span> <span class="built_in">String</span>(<span class="number">1</span>), <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>)];</div><div class="line"><span class="keyword">var</span> ans = unique(a);</div><div class="line"><span class="built_in">console</span>.log(ans); <span class="comment">// =&gt; [Object, Object, String, Number]</span></div></pre></td></tr></table></figure>
 <h3 id="方法六-unique"><a href="#方法六-unique" class="headerlink" title="方法六(_.unique)"></a>方法六(_.unique)</h3><h5 id="最后来看看-underscore-对此的实现方式，underscore-将此封装到了-unique-方法中，调用方式为-unique-array-isSorted-iteratee-。其中第一个参数是必须的，是需要去重的数组，第二个参数可选，如果数组有序，则可以传入布尔值-true，第三个参数可选，如果需要对数组迭代的结果去重，则可以传入一个迭代函数。而数组元素去重是基于-运算符的。"><a href="#最后来看看-underscore-对此的实现方式，underscore-将此封装到了-unique-方法中，调用方式为-unique-array-isSorted-iteratee-。其中第一个参数是必须的，是需要去重的数组，第二个参数可选，如果数组有序，则可以传入布尔值-true，第三个参数可选，如果需要对数组迭代的结果去重，则可以传入一个迭代函数。而数组元素去重是基于-运算符的。" class="headerlink" title="最后来看看 underscore 对此的实现方式，underscore 将此封装到了 .unique 方法中，调用方式为 .unique(array, [isSorted], [iteratee])。其中第一个参数是必须的，是需要去重的数组，第二个参数可选，如果数组有序，则可以传入布尔值 true，第三个参数可选，如果需要对数组迭代的结果去重，则可以传入一个迭代函数。而数组元素去重是基于 === 运算符的。"></a>最后来看看 underscore 对此的实现方式，underscore 将此封装到了 <em>.unique 方法中，调用方式为 </em>.unique(array, [isSorted], [iteratee])。其中第一个参数是必须的，是需要去重的数组，第二个参数可选，如果数组有序，则可以传入布尔值 true，第三个参数可选，如果需要对数组迭代的结果去重，则可以传入一个迭代函数。而数组元素去重是基于 === 运算符的。</h5><h5 id="其实很简单，underscore-中的实现方式和上面的方法一相似。"><a href="#其实很简单，underscore-中的实现方式和上面的方法一相似。" class="headerlink" title="其实很简单，underscore 中的实现方式和上面的方法一相似。"></a>其实很简单，underscore 中的实现方式和上面的方法一相似。</h5><h5 id="我们来看它的核心代码："><a href="#我们来看它的核心代码：" class="headerlink" title="我们来看它的核心代码："></a>我们来看它的核心代码：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, length = getLength(array); i &lt; length; i++) &#123;</div><div class="line">  <span class="keyword">var</span> value = array[i],</div><div class="line">      <span class="comment">// 如果指定了迭代函数</span></div><div class="line">      <span class="comment">// 则对数组每一个元素进行迭代</span></div><div class="line">      computed = iteratee ? iteratee(value, i, array) : value;</div><div class="line"></div><div class="line">  <span class="comment">// 如果是有序数组，则当前元素只需跟上一个元素对比即可</span></div><div class="line">  <span class="comment">// 用 seen 变量保存上一个元素</span></div><div class="line">  <span class="keyword">if</span> (isSorted) &#123;</div><div class="line">    <span class="comment">// 如果 i === 0，则直接 push</span></div><div class="line">    <span class="comment">// 否则比较当前元素是否和前一个元素相等</span></div><div class="line">    <span class="keyword">if</span> (!i || seen !== computed) result.push(value);</div><div class="line">    <span class="comment">// seen 保存当前元素，供下一次对比</span></div><div class="line">    seen = computed;</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (iteratee) &#123;</div><div class="line">    <span class="comment">// 如果 seen[] 中没有 computed 这个元素值</span></div><div class="line">    <span class="keyword">if</span> (!_.contains(seen, computed)) &#123;</div><div class="line">      seen.push(computed);</div><div class="line">      result.push(value);</div><div class="line">    &#125;</div><div class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!_.contains(result, value)) &#123;  </div><div class="line">    <span class="comment">// 如果不用经过迭代函数计算，也就不用 seen[] 变量了</span></div><div class="line">    result.push(value);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="外面的循环遍历数组元素，对于每个元素，如果数组有序，则和前一个元素比较，如果相同，则已经出现过，不加入到结果数组中，否则则加入。而如果有迭代函数，则计算传入迭代函数后的值，对值去重，调用-contains-方法，而该方法的核心就是调用-indexOf-方法，和我们上面说的方法一异曲同工。"><a href="#外面的循环遍历数组元素，对于每个元素，如果数组有序，则和前一个元素比较，如果相同，则已经出现过，不加入到结果数组中，否则则加入。而如果有迭代函数，则计算传入迭代函数后的值，对值去重，调用-contains-方法，而该方法的核心就是调用-indexOf-方法，和我们上面说的方法一异曲同工。" class="headerlink" title="外面的循环遍历数组元素，对于每个元素，如果数组有序，则和前一个元素比较，如果相同，则已经出现过，不加入到结果数组中，否则则加入。而如果有迭代函数，则计算传入迭代函数后的值，对值去重，调用 .contains 方法，而该方法的核心就是调用 .indexOf 方法，和我们上面说的方法一异曲同工。"></a>外面的循环遍历数组元素，对于每个元素，如果数组有序，则和前一个元素比较，如果相同，则已经出现过，不加入到结果数组中，否则则加入。而如果有迭代函数，则计算传入迭代函数后的值，对值去重，调用 <em>.contains 方法，而该方法的核心就是调用 </em>.indexOf 方法，和我们上面说的方法一异曲同工。</h5>
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -366,16 +364,15 @@
 
       
       
-        <div class="post-eof"></div>
-      
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -383,6 +380,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -402,8 +403,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/touxiang.jpg"
@@ -465,6 +475,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-数组去重"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 数组去重</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过-比较返回-true-的视为相同元素，需要去重，所以，1-和-“1”-是不同的元素，1-和-new-Number-1-是不同的元素，-和-是不同的元素（引用不同）。（当然如果需求认为-和-算作相同的元素，那么解法就不一样了）"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">数组去重，一般需求是给你一个数组，调用去重方法，返回数值副本，副本中没有重复元素。一般来说，两个元素通过 === 比较返回 true 的视为相同元素，需要去重，所以，1 和 “1” 是不同的元素，1 和 new Number(1) 是不同的元素，{} 和 {} 是不同的元素（引用不同）。（当然如果需求认为 {} 和 {} 算作相同的元素，那么解法就不一样了）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无需思考，我们可以得到-O-n-2-复杂度的解法。定义一个变量数组-res-保存结果，遍历需要去重的数组，如果该元素已经存在在-res-中了，则说明是重复的元素，如果没有，则放入-res-中。"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">无需思考，我们可以得到 O(n^2) 复杂度的解法。定义一个变量数组 res 保存结果，遍历需要去重的数组，如果该元素已经存在在 res 中了，则说明是重复的元素，如果没有，则放入 res 中。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码非常简单，那么是否能更简洁些？如果不考虑浏览器兼容，我们可以用-ES5-提供的-Array-prototype-indexOf-方法来简化代码。"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">代码非常简单，那么是否能更简洁些？如果不考虑浏览器兼容，我们可以用 ES5 提供的 Array.prototype.indexOf 方法来简化代码。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#既然用了-indexOf，那么不妨再加上-filter。"><span class="nav-number">1.0.0.0.4.</span> <span class="nav-text">既然用了 indexOf，那么不妨再加上 filter。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">1.0.1.</span> <span class="nav-text">方法二</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#法一是将原数组中的元素和结果数组中的元素一一比较，我们可以换个思路，将原数组中重复元素的最后一个元素放入结果数组中。"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">法一是将原数组中的元素和结果数组中的元素一一比较，我们可以换个思路，将原数组中重复元素的最后一个元素放入结果数组中。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#虽然复杂度还是-O-n-2-，但是可以看到结果不同，1-出现在了数组最后面，因为结果数组取的是元素最后一次出现的位置。"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">虽然复杂度还是 O(n^2)，但是可以看到结果不同，1 出现在了数组最后面，因为结果数组取的是元素最后一次出现的位置。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三（sort"><span class="nav-number">1.0.2.</span> <span class="nav-text">方法三（sort)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#但是问题又来了，1-和-“1”-会被排在一起，不同的-Object-会被排在一起，因为它们-toString-的结果相同，所以会出现这样的错误："><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">但是问题又来了，1 和 “1” 会被排在一起，不同的 Object 会被排在一起，因为它们 toString() 的结果相同，所以会出现这样的错误：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#当然你完全可以针对数组中可能出现的不同类型，来写这个比较函数。不过这似乎有点麻烦。"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">当然你完全可以针对数组中可能出现的不同类型，来写这个比较函数。不过这似乎有点麻烦。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法四-（object）"><span class="nav-number">1.0.3.</span> <span class="nav-text">方法四 （object）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#用-JavaScript-中的-Object-对象来当做哈希表，这也是几年前笔试时的解法，跟-sort-一样，可以去重完全由-Number-基本类型组成的数组。"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">用 JavaScript 中的 Object 对象来当做哈希表，这也是几年前笔试时的解法，跟 sort 一样，可以去重完全由 Number 基本类型组成的数组。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#还是和方法三一样的问题，因为-Object-的-key-值都是-String-类型，所以对于-1-和-“1”-无法分别，我们可以稍微改进下，将类型也存入-key-中。"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">还是和方法三一样的问题，因为 Object 的 key 值都是 String 类型，所以对于 1 和 “1” 无法分别，我们可以稍微改进下，将类型也存入 key 中。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#虽然解决了讨厌的-1-和-“1”-的问题，但是还有别的问题！"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">虽然解决了讨厌的 1 和 “1” 的问题，但是还有别的问题！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#但是如果数组元素全部是基础类型的-Number-值，键值对法应该是最高效的！"><span class="nav-number">1.0.3.0.4.</span> <span class="nav-text">但是如果数组元素全部是基础类型的 Number 值，键值对法应该是最高效的！</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法五-（ES6）"><span class="nav-number">1.0.4.</span> <span class="nav-text">方法五 （ES6）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ES6-部署了-Set-以及-Array-from-方法，太强大了！如果浏览器支持，完全可以这样："><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">ES6 部署了 Set 以及 Array.from 方法，太强大了！如果浏览器支持，完全可以这样：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法六-unique"><span class="nav-number">1.0.5.</span> <span class="nav-text">方法六(_.unique)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#最后来看看-underscore-对此的实现方式，underscore-将此封装到了-unique-方法中，调用方式为-unique-array-isSorted-iteratee-。其中第一个参数是必须的，是需要去重的数组，第二个参数可选，如果数组有序，则可以传入布尔值-true，第三个参数可选，如果需要对数组迭代的结果去重，则可以传入一个迭代函数。而数组元素去重是基于-运算符的。"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">最后来看看 underscore 对此的实现方式，underscore 将此封装到了 .unique 方法中，调用方式为 .unique(array, [isSorted], [iteratee])。其中第一个参数是必须的，是需要去重的数组，第二个参数可选，如果数组有序，则可以传入布尔值 true，第三个参数可选，如果需要对数组迭代的结果去重，则可以传入一个迭代函数。而数组元素去重是基于 === 运算符的。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其实很简单，underscore-中的实现方式和上面的方法一相似。"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">其实很简单，underscore 中的实现方式和上面的方法一相似。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#我们来看它的核心代码："><span class="nav-number">1.0.5.0.3.</span> <span class="nav-text">我们来看它的核心代码：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#外面的循环遍历数组元素，对于每个元素，如果数组有序，则和前一个元素比较，如果相同，则已经出现过，不加入到结果数组中，否则则加入。而如果有迭代函数，则计算传入迭代函数后的值，对值去重，调用-contains-方法，而该方法的核心就是调用-indexOf-方法，和我们上面说的方法一异曲同工。"><span class="nav-number">1.0.5.0.4.</span> <span class="nav-text">外面的循环遍历数组元素，对于每个元素，如果数组有序，则和前一个元素比较，如果相同，则已经出现过，不加入到结果数组中，否则则加入。而如果有迭代函数，则计算传入迭代函数后的值，对值去重，调用 .contains 方法，而该方法的核心就是调用 .indexOf 方法，和我们上面说的方法一异曲同工。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -564,6 +590,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -595,6 +625,10 @@
 
   
 
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
   
 
 
