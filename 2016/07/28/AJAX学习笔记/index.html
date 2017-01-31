@@ -1,0 +1,678 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端开发,用户体验,nodejs,JavaScript,vue,angular" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="AJAX 学习笔记一、AJAX定义&amp;#8194;&amp;#8194;&amp;#8194;&amp;#8194;生活中有一个很常见的例子，很多网页都有登录注册页面，在很久以前，传统的数据验证是需要等用户把要填的每一项都填好之后，点击提交按钮，数据传输到后台。如果你的运气很不好，那么不好意思，页面给你提示数据格式有误。之前花费很多时间填写的数据在页面刷新之后都给你清空了，那么你就需要重新一步一步的来填写数据。很明显，这种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX 学习笔记">
+<meta property="og:url" content="http://www.vituyun.com/2016/07/28/AJAX学习笔记/index.html">
+<meta property="og:site_name" content="Guoch">
+<meta property="og:description" content="AJAX 学习笔记一、AJAX定义&amp;#8194;&amp;#8194;&amp;#8194;&amp;#8194;生活中有一个很常见的例子，很多网页都有登录注册页面，在很久以前，传统的数据验证是需要等用户把要填的每一项都填好之后，点击提交按钮，数据传输到后台。如果你的运气很不好，那么不好意思，页面给你提示数据格式有误。之前花费很多时间填写的数据在页面刷新之后都给你清空了，那么你就需要重新一步一步的来填写数据。很明显，这种">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1029226/201611/1029226-20161117161035185-1410797706.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1029226/201611/1029226-20161117161654513-2119296454.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1029226/201611/1029226-20161117161920935-869871263.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1029226/201611/1029226-20161117231212357-54640046.png">
+<meta property="og:updated_time" content="2017-01-31T16:19:37.116Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AJAX 学习笔记">
+<meta name="twitter:description" content="AJAX 学习笔记一、AJAX定义&amp;#8194;&amp;#8194;&amp;#8194;&amp;#8194;生活中有一个很常见的例子，很多网页都有登录注册页面，在很久以前，传统的数据验证是需要等用户把要填的每一项都填好之后，点击提交按钮，数据传输到后台。如果你的运气很不好，那么不好意思，页面给你提示数据格式有误。之前花费很多时间填写的数据在页面刷新之后都给你清空了，那么你就需要重新一步一步的来填写数据。很明显，这种">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1029226/201611/1029226-20161117161035185-1410797706.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6380287015207831000',
+      author: 'Guoch'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.vituyun.com/2016/07/28/AJAX学习笔记/"/>
+
+
+
+
+
+  <title> AJAX 学习笔记 | Guoch </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Guoch</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.vituyun.com/2016/07/28/AJAX学习笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Guoch">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/uploads/touxiang.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Guoch">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Guoch" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                AJAX 学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-28T09:06:57+08:00">
+                2016-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Study-notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Study notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="AJAX-学习笔记"><a href="#AJAX-学习笔记" class="headerlink" title="AJAX 学习笔记"></a>AJAX 学习笔记</h1><h2 id="一、AJAX定义"><a href="#一、AJAX定义" class="headerlink" title="一、AJAX定义"></a>一、AJAX定义</h2><h6 id="8194-8194-8194-8194-生活中有一个很常见的例子，很多网页都有登录注册页面，在很久以前，传统的数据验证是需要等用户把要填的每一项都填好之后，点击提交按钮，数据传输到后台。如果你的运气很不好，那么不好意思，页面给你提示数据格式有误。之前花费很多时间填写的数据在页面刷新之后都给你清空了，那么你就需要重新一步一步的来填写数据。很明显，这种用户体验非常不好。因此就诞生了一个异步交互的理念，用户每填写一项数据就自动向后台进行验证，同时要注意的是当前页面并没有刷新，只是会局部刷新。"><a href="#8194-8194-8194-8194-生活中有一个很常见的例子，很多网页都有登录注册页面，在很久以前，传统的数据验证是需要等用户把要填的每一项都填好之后，点击提交按钮，数据传输到后台。如果你的运气很不好，那么不好意思，页面给你提示数据格式有误。之前花费很多时间填写的数据在页面刷新之后都给你清空了，那么你就需要重新一步一步的来填写数据。很明显，这种用户体验非常不好。因此就诞生了一个异步交互的理念，用户每填写一项数据就自动向后台进行验证，同时要注意的是当前页面并没有刷新，只是会局部刷新。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;生活中有一个很常见的例子，很多网页都有登录注册页面，在很久以前，传统的数据验证是需要等用户把要填的每一项都填好之后，点击提交按钮，数据传输到后台。如果你的运气很不好，那么不好意思，页面给你提示数据格式有误。之前花费很多时间填写的数据在页面刷新之后都给你清空了，那么你就需要重新一步一步的来填写数据。很明显，这种用户体验非常不好。因此就诞生了一个异步交互的理念，用户每填写一项数据就自动向后台进行验证，同时要注意的是当前页面并没有刷新，只是会局部刷新。"></a>&#8194;&#8194;&#8194;&#8194;生活中有一个很常见的例子，很多网页都有登录注册页面，在很久以前，传统的数据验证是需要等用户把要填的每一项都填好之后，点击提交按钮，数据传输到后台。如果你的运气很不好，那么不好意思，页面给你提示数据格式有误。之前花费很多时间填写的数据在页面刷新之后都给你清空了，那么你就需要重新一步一步的来填写数据。很明显，这种用户体验非常不好。因此就诞生了一个异步交互的理念，用户每填写一项数据就自动向后台进行验证，同时要注意的是当前页面并没有刷新，只是会局部刷新。</h6><h6 id="8194-8194-8194-8194-AJAX-全称为-Asynchronous-Javascript-And-XML。它不是一门的新的语言，而是对现有技术的综合利用。本质是在HTTP协议的基础上以异步的方式与服务器进行通信。异步是指某段程序执行时不会阻塞其它程序执行，其表现形式为程序的执行顺序不依赖程序本身的书写顺序，相反则为同步。其优势在于不阻塞程序的执行，从而提升整体执行效率。要实现异步交互的目的，我们需要借助异步对象XMLHttpRequest来实现。XMLHttpRequest是浏览器内建对象，用于在后台与服务器通信-交换数据-，由此我们便可实现对网页的部分更新，而不是刷新整个页面。"><a href="#8194-8194-8194-8194-AJAX-全称为-Asynchronous-Javascript-And-XML。它不是一门的新的语言，而是对现有技术的综合利用。本质是在HTTP协议的基础上以异步的方式与服务器进行通信。异步是指某段程序执行时不会阻塞其它程序执行，其表现形式为程序的执行顺序不依赖程序本身的书写顺序，相反则为同步。其优势在于不阻塞程序的执行，从而提升整体执行效率。要实现异步交互的目的，我们需要借助异步对象XMLHttpRequest来实现。XMLHttpRequest是浏览器内建对象，用于在后台与服务器通信-交换数据-，由此我们便可实现对网页的部分更新，而不是刷新整个页面。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;AJAX 全称为 Asynchronous Javascript And XML。它不是一门的新的语言，而是对现有技术的综合利用。本质是在HTTP协议的基础上以异步的方式与服务器进行通信。异步是指某段程序执行时不会阻塞其它程序执行，其表现形式为程序的执行顺序不依赖程序本身的书写顺序，相反则为同步。其优势在于不阻塞程序的执行，从而提升整体执行效率。要实现异步交互的目的，我们需要借助异步对象XMLHttpRequest来实现。XMLHttpRequest是浏览器内建对象，用于在后台与服务器通信(交换数据) ，由此我们便可实现对网页的部分更新，而不是刷新整个页面。"></a>&#8194;&#8194;&#8194;&#8194;AJAX 全称为 Asynchronous Javascript And XML。它不是一门的新的语言，而是对现有技术的综合利用。本质是在HTTP协议的基础上以异步的方式与服务器进行通信。异步是指某段程序执行时不会阻塞其它程序执行，其表现形式为程序的执行顺序不依赖程序本身的书写顺序，相反则为同步。其优势在于不阻塞程序的执行，从而提升整体执行效率。要实现异步交互的目的，我们需要借助异步对象XMLHttpRequest来实现。XMLHttpRequest是浏览器内建对象，用于在后台与服务器通信(交换数据) ，由此我们便可实现对网页的部分更新，而不是刷新整个页面。</h6><a id="more"></a> 
+<h3 id="二、理解前后端交互与HTTP"><a href="#二、理解前后端交互与HTTP" class="headerlink" title="二、理解前后端交互与HTTP"></a>二、理解前后端交互与HTTP</h3><h6 id="8194-8194-8194-8194-简单的理解前后台的交互，说白了就是六个字，请求、处理、响应。浏览器与服务器之间的通信是需要遵守一定的规则的，也就是通信协议。常见的通信协议有："><a href="#8194-8194-8194-8194-简单的理解前后台的交互，说白了就是六个字，请求、处理、响应。浏览器与服务器之间的通信是需要遵守一定的规则的，也就是通信协议。常见的通信协议有：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;简单的理解前后台的交互，说白了就是六个字，请求、处理、响应。浏览器与服务器之间的通信是需要遵守一定的规则的，也就是通信协议。常见的通信协议有："></a>&#8194;&#8194;&#8194;&#8194;简单的理解前后台的交互，说白了就是六个字，请求、处理、响应。浏览器与服务器之间的通信是需要遵守一定的规则的，也就是通信协议。常见的通信协议有：</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-1-HTTP、HTTPS-超文本传输协议"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-1-HTTP、HTTPS-超文本传输协议" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;1. HTTP、HTTPS 超文本传输协议"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;1. HTTP、HTTPS 超文本传输协议</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-2-FTP-文件传输协议"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-2-FTP-文件传输协议" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;2. FTP 文件传输协议"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;2. FTP 文件传输协议</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-3-SMTP-简单邮件传输协议"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-3-SMTP-简单邮件传输协议" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;3. SMTP 简单邮件传输协议"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;3. SMTP 简单邮件传输协议</h6><h6 id="8194-8194-8194-8194-通信协议不是这里的重点，我们需要了解的是HTTP-协议。HTTP-协议即超文本传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。HTTP协议是由从客户机到服务器的请求-Request-和从服务器到客户机的响应-Response-进行了约束和规范。HTTP-协议中常见的两种请求方式是POST、GET，还有几个不常见的比如PUT、DELETE。"><a href="#8194-8194-8194-8194-通信协议不是这里的重点，我们需要了解的是HTTP-协议。HTTP-协议即超文本传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。HTTP协议是由从客户机到服务器的请求-Request-和从服务器到客户机的响应-Response-进行了约束和规范。HTTP-协议中常见的两种请求方式是POST、GET，还有几个不常见的比如PUT、DELETE。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194; 通信协议不是这里的重点，我们需要了解的是HTTP 协议。HTTP 协议即超文本传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。HTTP协议是由从客户机到服务器的请求(Request)和从服务器到客户机的响应(Response)进行了约束和规范。HTTP 协议中常见的两种请求方式是POST、GET，还有几个不常见的比如PUT、DELETE。"></a>&#8194;&#8194;&#8194;&#8194; 通信协议不是这里的重点，我们需要了解的是HTTP 协议。HTTP 协议即超文本传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。HTTP协议是由从客户机到服务器的请求(Request)和从服务器到客户机的响应(Response)进行了约束和规范。HTTP 协议中常见的两种请求方式是POST、GET，还有几个不常见的比如PUT、DELETE。</h6><h6 id="8194-8194-8194-8194-客户端给服务器发送请求，也就是请求报文。请求报文的规范格式为请求行、请求头、请求主体。如："><a href="#8194-8194-8194-8194-客户端给服务器发送请求，也就是请求报文。请求报文的规范格式为请求行、请求头、请求主体。如：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;客户端给服务器发送请求，也就是请求报文。请求报文的规范格式为请求行、请求头、请求主体。如："></a>&#8194;&#8194;&#8194;&#8194;客户端给服务器发送请求，也就是请求报文。请求报文的规范格式为请求行、请求头、请求主体。如：</h6><p><img src="http://images2015.cnblogs.com/blog/1029226/201611/1029226-20161117161035185-1410797706.png" alt=""></p>
+<h6 id="8194-8194-8194-8194-请求报文行由请求方式，请求的URL和协议版本组成，如上面第一个标记处。请求报文头包括："><a href="#8194-8194-8194-8194-请求报文行由请求方式，请求的URL和协议版本组成，如上面第一个标记处。请求报文头包括：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;请求报文行由请求方式，请求的URL和协议版本组成，如上面第一个标记处。请求报文头包括："></a>&#8194;&#8194;&#8194;&#8194;请求报文行由请求方式，请求的URL和协议版本组成，如上面第一个标记处。请求报文头包括：</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-Host：localhost请求的主机"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-Host：localhost请求的主机" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Host：localhost请求的主机"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Host：localhost请求的主机</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-Cache-Control：max-age-0控制缓存-no-cache-no-store"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-Cache-Control：max-age-0控制缓存-no-cache-no-store" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;-  Cache-Control：max-age=0控制缓存(no-cache| no-store)"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;-  Cache-Control：max-age=0控制缓存(no-cache| no-store)</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-Accept：-接受的文档MIME类型"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-Accept：-接受的文档MIME类型" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Accept：/ 接受的文档MIME类型"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Accept：<em>/</em> 接受的文档MIME类型</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-User-Agent：向访问网站提供你所使用的浏览器类型、操作系统及版本、CPU-类型、浏览器渲染引擎、浏览器语言、浏览器插件等信息的标识-浏览器UA-字串的标准格式为：-浏览器标识-操作系统标识-加密等级标识-浏览器语言-渲染引擎标识-版本信息"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-User-Agent：向访问网站提供你所使用的浏览器类型、操作系统及版本、CPU-类型、浏览器渲染引擎、浏览器语言、浏览器插件等信息的标识-浏览器UA-字串的标准格式为：-浏览器标识-操作系统标识-加密等级标识-浏览器语言-渲染引擎标识-版本信息" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- User-Agent：向访问网站提供你所使用的浏览器类型、操作系统及版本、CPU 类型、浏览器渲染引擎、浏览器语言、浏览器插件等信息的标识. 浏览器UA 字串的标准格式为： 浏览器标识 (操作系统标识; 加密等级标识; 浏览器语言) 渲染引擎标识 版本信息"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- User-Agent：向访问网站提供你所使用的浏览器类型、操作系统及版本、CPU 类型、浏览器渲染引擎、浏览器语言、浏览器插件等信息的标识. 浏览器UA 字串的标准格式为： 浏览器标识 (操作系统标识; 加密等级标识; 浏览器语言) 渲染引擎标识 版本信息</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-Referer：从哪个URL跳转过来的"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-Referer：从哪个URL跳转过来的" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Referer：从哪个URL跳转过来的"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Referer：从哪个URL跳转过来的</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-Accept-Encoding：可接受的压缩格式请求报文体即传递给服务端的数据。"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-Accept-Encoding：可接受的压缩格式请求报文体即传递给服务端的数据。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Accept-Encoding：可接受的压缩格式请求报文体即传递给服务端的数据。"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Accept-Encoding：可接受的压缩格式请求报文体即传递给服务端的数据。</h6><h6 id="8194-8194-8194-8194-相应的，服务器响应也有响应报文。其规范格式为：状态行、响应头、响应主体。"><a href="#8194-8194-8194-8194-相应的，服务器响应也有响应报文。其规范格式为：状态行、响应头、响应主体。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;相应的，服务器响应也有响应报文。其规范格式为：状态行、响应头、响应主体。"></a>&#8194;&#8194;&#8194;&#8194;相应的，服务器响应也有响应报文。其规范格式为：状态行、响应头、响应主体。</h6><p><img src="http://images2015.cnblogs.com/blog/1029226/201611/1029226-20161117161654513-2119296454.png" alt=""></p>
+<h6 id="8194-8194-8194-8194-状态行由协议版本号、状态码和状态信息构成。"><a href="#8194-8194-8194-8194-状态行由协议版本号、状态码和状态信息构成。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;状态行由协议版本号、状态码和状态信息构成。"></a>&#8194;&#8194;&#8194;&#8194;状态行由协议版本号、状态码和状态信息构成。</h6><h6 id="8194-8194-8194-8194-响应头包括："><a href="#8194-8194-8194-8194-响应头包括：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;响应头包括："></a>&#8194;&#8194;&#8194;&#8194;响应头包括：</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-Date：响应时间"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-Date：响应时间" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Date：响应时间"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Date：响应时间</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-Server：服务器信息"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-Server：服务器信息" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Server：服务器信息"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Server：服务器信息</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-Content-Length：响应主体长度"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-Content-Length：响应主体长度" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Content-Length：响应主体长度"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Content-Length：响应主体长度</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-Content-Type：响应资源的MIME类型"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-Content-Type：响应资源的MIME类型" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Content-Type：响应资源的MIME类型"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- Content-Type：响应资源的MIME类型</h6><h6 id="8194-8194-8194-8194-响应主体：即服务端返回给客户端的内容。"><a href="#8194-8194-8194-8194-响应主体：即服务端返回给客户端的内容。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;响应主体：即服务端返回给客户端的内容。"></a>&#8194;&#8194;&#8194;&#8194;响应主体：即服务端返回给客户端的内容。</h6><h6 id="8194-8194-8194-8194-常见的服务器响应状态码有：200代表成功、304文档未修改、403没有权限、404未找到，500-服务器错误"><a href="#8194-8194-8194-8194-常见的服务器响应状态码有：200代表成功、304文档未修改、403没有权限、404未找到，500-服务器错误" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;常见的服务器响应状态码有：200代表成功、304文档未修改、403没有权限、404未找到，500 服务器错误"></a>&#8194;&#8194;&#8194;&#8194;常见的服务器响应状态码有：200代表成功、304文档未修改、403没有权限、404未找到，500 服务器错误</h6><p><img src="http://images2015.cnblogs.com/blog/1029226/201611/1029226-20161117161920935-869871263.png" alt=""></p>
+<h6 id="8194-8194-8194-8194-客户端与服务器在进行数据传输的时候都是以字节形式进行的，可以理解成是以文本形式传输，这时浏览器就需要明确知道该怎么样来解析这些文本形式的数据，MIME（Content-Type）就是明确告知浏览器该如何来处理。"><a href="#8194-8194-8194-8194-客户端与服务器在进行数据传输的时候都是以字节形式进行的，可以理解成是以文本形式传输，这时浏览器就需要明确知道该怎么样来解析这些文本形式的数据，MIME（Content-Type）就是明确告知浏览器该如何来处理。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;客户端与服务器在进行数据传输的时候都是以字节形式进行的，可以理解成是以文本形式传输，这时浏览器就需要明确知道该怎么样来解析这些文本形式的数据，MIME（Content-Type）就是明确告知浏览器该如何来处理。"></a>&#8194;&#8194;&#8194;&#8194;客户端与服务器在进行数据传输的时候都是以字节形式进行的，可以理解成是以文本形式传输，这时浏览器就需要明确知道该怎么样来解析这些文本形式的数据，MIME（Content-Type）就是明确告知浏览器该如何来处理。</h6><h3 id="三、异步数据交互实现"><a href="#三、异步数据交互实现" class="headerlink" title="三、异步数据交互实现"></a>三、异步数据交互实现</h3><h6 id="8194-8194-8194-8194-在了解了客户端与服务器的通信协议之后，我们就可以着手我们的异步数据交互实现了。要去和后台进行数据验证，我们可以指挥XMLHttpRequest这个异步对象去帮助我们来实现。"><a href="#8194-8194-8194-8194-在了解了客户端与服务器的通信协议之后，我们就可以着手我们的异步数据交互实现了。要去和后台进行数据验证，我们可以指挥XMLHttpRequest这个异步对象去帮助我们来实现。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;在了解了客户端与服务器的通信协议之后，我们就可以着手我们的异步数据交互实现了。要去和后台进行数据验证，我们可以指挥XMLHttpRequest这个异步对象去帮助我们来实现。"></a>&#8194;&#8194;&#8194;&#8194;在了解了客户端与服务器的通信协议之后，我们就可以着手我们的异步数据交互实现了。要去和后台进行数据验证，我们可以指挥XMLHttpRequest这个异步对象去帮助我们来实现。</h6><h4 id="1、首先是创建异步对象。"><a href="#1、首先是创建异步对象。" class="headerlink" title="1、首先是创建异步对象。"></a>1、首先是创建异步对象。</h4><h6 id="8194-8194-8194-8194-在高版本的浏览器中，可以通过new-XMLHttpRequest-来创建，但是在IE低版本-5、6-中则要通过newActiveXObject-“Microsoft-XMLHTTP”-来创建。兼容性的写法为："><a href="#8194-8194-8194-8194-在高版本的浏览器中，可以通过new-XMLHttpRequest-来创建，但是在IE低版本-5、6-中则要通过newActiveXObject-“Microsoft-XMLHTTP”-来创建。兼容性的写法为：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;在高版本的浏览器中，可以通过new XMLHttpRequest()来创建，但是在IE低版本(5、6)中则要通过newActiveXObject(“Microsoft.XMLHTTP”) 来创建。兼容性的写法为："></a>&#8194;&#8194;&#8194;&#8194;在高版本的浏览器中，可以通过new XMLHttpRequest()来创建，但是在IE低版本(5、6)中则要通过newActiveXObject(“Microsoft.XMLHTTP”) 来创建。兼容性的写法为：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建异步对象</span></div><div class="line">xhr = <span class="built_in">window</span>.XMLHttpRequest ? <span class="keyword">new</span> XMLHttpRequest() : <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</div></pre></td></tr></table></figure>
+<h4 id="2、异步对象成功创建之后，就是请求的发送。"><a href="#2、异步对象成功创建之后，就是请求的发送。" class="headerlink" title="2、异步对象成功创建之后，就是请求的发送。"></a>2、异步对象成功创建之后，就是请求的发送。</h4><h6 id="8194-8194-8194-8194-请求发送需要设置三部分内容，有设置请求行、设置请求头、设置请求主体这三个部分。首先是请求行的设置，前面已经提到过了，设置请求行主要是设置请求的方式-默认为get请求-，请求的url，还有async-是同步还是异步，默认值为true也就是异步方式-；请求头的设置需要判断请求方式是什么，如果请求方式是get，那么不需要设置请求头，如果请求方式为post，那么需要设置请求头；请求主体设置就是需要传递的参数，在get方式中参数传递是加在请求行的url中的，post方式才写在请求主体中。下面是一个post方式的请求发送过程："><a href="#8194-8194-8194-8194-请求发送需要设置三部分内容，有设置请求行、设置请求头、设置请求主体这三个部分。首先是请求行的设置，前面已经提到过了，设置请求行主要是设置请求的方式-默认为get请求-，请求的url，还有async-是同步还是异步，默认值为true也就是异步方式-；请求头的设置需要判断请求方式是什么，如果请求方式是get，那么不需要设置请求头，如果请求方式为post，那么需要设置请求头；请求主体设置就是需要传递的参数，在get方式中参数传递是加在请求行的url中的，post方式才写在请求主体中。下面是一个post方式的请求发送过程：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;请求发送需要设置三部分内容，有设置请求行、设置请求头、设置请求主体这三个部分。首先是请求行的设置，前面已经提到过了，设置请求行主要是设置请求的方式(默认为get请求)，请求的url，还有async(是同步还是异步，默认值为true也就是异步方式)；请求头的设置需要判断请求方式是什么，如果请求方式是get，那么不需要设置请求头，如果请求方式为post，那么需要设置请求头；请求主体设置就是需要传递的参数，在get方式中参数传递是加在请求行的url中的，post方式才写在请求主体中。下面是一个post方式的请求发送过程：　"></a>&#8194;&#8194;&#8194;&#8194;请求发送需要设置三部分内容，有设置请求行、设置请求头、设置请求主体这三个部分。首先是请求行的设置，前面已经提到过了，设置请求行主要是设置请求的方式(默认为get请求)，请求的url，还有async(是同步还是异步，默认值为true也就是异步方式)；请求头的设置需要判断请求方式是什么，如果请求方式是get，那么不需要设置请求头，如果请求方式为post，那么需要设置请求头；请求主体设置就是需要传递的参数，在get方式中参数传递是加在请求行的url中的，post方式才写在请求主体中。下面是一个post方式的请求发送过程：　</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">xmlHttp.open(<span class="string">"POST"</span>,<span class="string">"register-post.php"</span>,<span class="literal">true</span>);</div><div class="line"><span class="comment">//必须设置,否则服务器端收不到参数</span></div><div class="line">xmlHttp.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</div><div class="line">xmlHttp.send(<span class="string">"userName="</span>+userName+<span class="string">"&amp;userPwd="</span>+userPwd);</div></pre></td></tr></table></figure>
+<h4 id="3、下一步就是监测服务器的响应状态以及异步对象的状态。"><a href="#3、下一步就是监测服务器的响应状态以及异步对象的状态。" class="headerlink" title="3、下一步就是监测服务器的响应状态以及异步对象的状态。　"></a>3、下一步就是监测服务器的响应状态以及异步对象的状态。　</h4><h6 id="8194-8194-8194-8194-我们可以借助onreadystatechange，onreadystatechange是Javascript的事件的一种，其意义在于监听XMLHttpRequest的状态。在这里，readyState是指响应状态，返回XMLHTTP请求的当前状态，当取值为4时表示请求成功。"><a href="#8194-8194-8194-8194-我们可以借助onreadystatechange，onreadystatechange是Javascript的事件的一种，其意义在于监听XMLHttpRequest的状态。在这里，readyState是指响应状态，返回XMLHTTP请求的当前状态，当取值为4时表示请求成功。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;我们可以借助onreadystatechange，onreadystatechange是Javascript的事件的一种，其意义在于监听XMLHttpRequest的状态。在这里，readyState是指响应状态，返回XMLHTTP请求的当前状态，当取值为4时表示请求成功。"></a>&#8194;&#8194;&#8194;&#8194;我们可以借助onreadystatechange，onreadystatechange是Javascript的事件的一种，其意义在于监听XMLHttpRequest的状态。在这里，readyState是指响应状态，返回XMLHTTP请求的当前状态，当取值为4时表示请求成功。</h6><p><img src="http://images2015.cnblogs.com/blog/1029226/201611/1029226-20161117231212357-54640046.png" alt=""></p>
+<h6 id="8194-8194-8194-8194-监测服务器的的状态是通过status，取值为200表示服务器响应成功。过程如下："><a href="#8194-8194-8194-8194-监测服务器的的状态是通过status，取值为200表示服务器响应成功。过程如下：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;监测服务器的的状态是通过status，取值为200表示服务器响应成功。过程如下："></a>&#8194;&#8194;&#8194;&#8194;监测服务器的的状态是通过status，取值为200表示服务器响应成功。过程如下：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">xmlHttp.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(xmlHttp.readyState == <span class="number">4</span> &amp;&amp; xmlHttp.status == <span class="number">200</span>) &#123;</div><div class="line">        <span class="comment">//code</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="4、在获取到服务器的响应数据之后，不同的数据通过不同的方式来解析，常见的有xml和json。"><a href="#4、在获取到服务器的响应数据之后，不同的数据通过不同的方式来解析，常见的有xml和json。" class="headerlink" title="4、在获取到服务器的响应数据之后，不同的数据通过不同的方式来解析，常见的有xml和json。"></a>4、在获取到服务器的响应数据之后，不同的数据通过不同的方式来解析，常见的有xml和json。</h4><h5 id="8194-8194-8194-8194-我们先来了解一下xml。XML是一种标记语言，很类似HTML，其宗旨是用来传输数据，具有自我描述性（固定的格式的数据），如："><a href="#8194-8194-8194-8194-我们先来了解一下xml。XML是一种标记语言，很类似HTML，其宗旨是用来传输数据，具有自我描述性（固定的格式的数据），如：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;我们先来了解一下xml。XML是一种标记语言，很类似HTML，其宗旨是用来传输数据，具有自我描述性（固定的格式的数据），如："></a>&#8194;&#8194;&#8194;&#8194;我们先来了解一下xml。XML是一种标记语言，很类似HTML，其宗旨是用来传输数据，具有自我描述性（固定的格式的数据），如：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="comment">&lt;!--注释--&gt;</span></div><div class="line"><span class="comment">&lt;!--root:一定要添加--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--属性可以自定义--&gt;</span></div><div class="line">    <span class="comment">&lt;!--自定义标签不能以数字或者.开头，不能包含特殊字符,对大小写敏感--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>商品分类1<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">src</span>&gt;</span>../images/nav0.png<span class="tag">&lt;/<span class="name">src</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>商品分类2<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">src</span>&gt;</span>../images/nav1.png<span class="tag">&lt;/<span class="name">src</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">array</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></div></pre></td></tr></table></figure>
+<h6 id="8194-8194-8194-8194-xml的语法规则为："><a href="#8194-8194-8194-8194-xml的语法规则为：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;xml的语法规则为："></a>&#8194;&#8194;&#8194;&#8194;xml的语法规则为：</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-必须有一个根元素"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-必须有一个根元素" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 必须有一个根元素"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 必须有一个根元素</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-不可有空格、不可以数字或-开头、大小写敏感"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-不可有空格、不可以数字或-开头、大小写敏感" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 不可有空格、不可以数字或.开头、大小写敏感"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 不可有空格、不可以数字或.开头、大小写敏感</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-不可交叉嵌套"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-不可交叉嵌套" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 不可交叉嵌套"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 不可交叉嵌套</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-属性双引号（浏览器自动修正成双引号了）"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-属性双引号（浏览器自动修正成双引号了）" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 属性双引号（浏览器自动修正成双引号了）"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 属性双引号（浏览器自动修正成双引号了）</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-特殊符号要使用实体"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-特殊符号要使用实体" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 特殊符号要使用实体"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 特殊符号要使用实体</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-注释和HTML一样"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-注释和HTML一样" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 注释和HTML一样"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 注释和HTML一样</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-虽然可以描述和传输复杂数据，但是其解析过于复杂并且体积较大，所以实现开发已经很少使用了。"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-虽然可以描述和传输复杂数据，但是其解析过于复杂并且体积较大，所以实现开发已经很少使用了。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 虽然可以描述和传输复杂数据，但是其解析过于复杂并且体积较大，所以实现开发已经很少使用了。"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;- 虽然可以描述和传输复杂数据，但是其解析过于复杂并且体积较大，所以实现开发已经很少使用了。</h6><h5 id="8194-8194-8194-8194-JSON：即-JavaScript-Object-Notation，另一种轻量级的文本数据交换格式，独立于语言。语法规则："><a href="#8194-8194-8194-8194-JSON：即-JavaScript-Object-Notation，另一种轻量级的文本数据交换格式，独立于语言。语法规则：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;JSON：即 JavaScript Object Notation，另一种轻量级的文本数据交换格式，独立于语言。语法规则："></a>&#8194;&#8194;&#8194;&#8194;JSON：即 JavaScript Object Notation，另一种轻量级的文本数据交换格式，独立于语言。语法规则：</h5><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-数据在-名称-值-对-中"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-数据在-名称-值-对-中" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;-  数据在 名称/值 对 中"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;-  数据在 名称/值 对 中</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-数据由逗号分隔-最后一个健-值对不能带逗号"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-数据由逗号分隔-最后一个健-值对不能带逗号" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;-  数据由逗号分隔(最后一个健/值对不能带逗号)"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;-  数据由逗号分隔(最后一个健/值对不能带逗号)</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-花括号保存对象-方括号保存数组"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-花括号保存对象-方括号保存数组" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;-  花括号保存对象,方括号保存数组"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;-  花括号保存对象,方括号保存数组</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-名称和值都需要使用双引号包含"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-名称和值都需要使用双引号包含" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;-  名称和值都需要使用双引号包含"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;-  名称和值都需要使用双引号包含</h6><h5 id="8194-8194-8194-8194-JSON的解析：JSON数据在不同语言进行传输时，类型为字符串，不同的语言各自也都对应有解析方法，需要解析完成后才能读取。"><a href="#8194-8194-8194-8194-JSON的解析：JSON数据在不同语言进行传输时，类型为字符串，不同的语言各自也都对应有解析方法，需要解析完成后才能读取。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;JSON的解析：JSON数据在不同语言进行传输时，类型为字符串，不同的语言各自也都对应有解析方法，需要解析完成后才能读取。"></a>&#8194;&#8194;&#8194;&#8194;JSON的解析：JSON数据在不同语言进行传输时，类型为字符串，不同的语言各自也都对应有解析方法，需要解析完成后才能读取。</h5><h6 id="8194-8194-8194-8194-1、Javascript-解析方法"><a href="#8194-8194-8194-8194-1、Javascript-解析方法" class="headerlink" title="&#8194;&#8194;&#8194;&#8194; 1、Javascript 解析方法"></a>&#8194;&#8194;&#8194;&#8194; 1、Javascript 解析方法</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-JSON-parse-：从字符串解析出json对象"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-JSON-parse-：从字符串解析出json对象" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194; JSON.parse()：从字符串解析出json对象"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194; JSON.parse()：从字符串解析出json对象</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-JSON-stringify-：从json对象解析出字符串"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-JSON-stringify-：从json对象解析出字符串" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194; JSON.stringify()：从json对象解析出字符串"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194; JSON.stringify()：从json对象解析出字符串</h6><h6 id="8194-8194-8194-8194-2、PHP解析方法"><a href="#8194-8194-8194-8194-2、PHP解析方法" class="headerlink" title="&#8194;&#8194;&#8194;&#8194; 2、PHP解析方法"></a>&#8194;&#8194;&#8194;&#8194; 2、PHP解析方法</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-json-encode-：对变量进行-JSON-编码，返回-value-值的-JSON-形式"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-json-encode-：对变量进行-JSON-编码，返回-value-值的-JSON-形式" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194; json_encode()：对变量进行 JSON 编码，返回 value 值的 JSON 形式"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194; json_encode()：对变量进行 JSON 编码，返回 value 值的 JSON 形式</h6><h6 id="8194-8194-8194-8194-8194-8194-8194-8194-json-decode-：对-JSON-格式的字符串进行编码-，它接受一个-JSON-格式的字符串并且把它转换为-PHP-变量"><a href="#8194-8194-8194-8194-8194-8194-8194-8194-json-decode-：对-JSON-格式的字符串进行编码-，它接受一个-JSON-格式的字符串并且把它转换为-PHP-变量" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194; json_decode()：对 JSON 格式的字符串进行编码 ，它接受一个 JSON 格式的字符串并且把它转换为 PHP 变量"></a>&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194;&#8194; json_decode()：对 JSON 格式的字符串进行编码 ，它接受一个 JSON 格式的字符串并且把它转换为 PHP 变量</h6><h5 id="总结：JSON体积小、解析方便且高效，在实际开发成为首选。"><a href="#总结：JSON体积小、解析方便且高效，在实际开发成为首选。" class="headerlink" title="总结：JSON体积小、解析方便且高效，在实际开发成为首选。"></a>总结：JSON体积小、解析方便且高效，在实际开发成为首选。</h5><h3 id="四、数据解析方式确定"><a href="#四、数据解析方式确定" class="headerlink" title="四、数据解析方式确定"></a>四、数据解析方式确定</h3><h6 id="8194-8194-8194-8194-了解了这两中数据传输的方式之后，我们就可以以不同的方式来解析从数据库中获取的数据了。需要根据响应报文中的响应头中的Content-type属性来确定采用哪种方式，实现如下："><a href="#8194-8194-8194-8194-了解了这两中数据传输的方式之后，我们就可以以不同的方式来解析从数据库中获取的数据了。需要根据响应报文中的响应头中的Content-type属性来确定采用哪种方式，实现如下：" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;了解了这两中数据传输的方式之后，我们就可以以不同的方式来解析从数据库中获取的数据了。需要根据响应报文中的响应头中的Content-type属性来确定采用哪种方式，实现如下："></a>&#8194;&#8194;&#8194;&#8194;了解了这两中数据传输的方式之后，我们就可以以不同的方式来解析从数据库中获取的数据了。需要根据响应报文中的响应头中的Content-type属性来确定采用哪种方式，实现如下：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//接收返回值解析</span></div><div class="line"><span class="keyword">var</span> result = <span class="literal">null</span>;</div><div class="line"><span class="comment">//获取响应头</span></div><div class="line"><span class="keyword">var</span> rh = xhr.getResponseHeader(<span class="string">"Content-Type"</span>);</div><div class="line"><span class="keyword">if</span>(rh.indexOf(<span class="string">"xml"</span>) !== <span class="number">-1</span>) &#123;</div><div class="line">    result = xhr.responseXML;</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(rh.indexOf(<span class="string">"json"</span>) !== <span class="number">-1</span>) &#123;</div><div class="line">    result = <span class="built_in">JSON</span>.parse(xhr.responseText);</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">    result = xhr.responseText;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="8194-8194-8194-8194-getResponseHeader方法是获取响应报文中指定属性的值，在数据进行相应处理之后前台再来决定如何渲染出结果。这种处理大部分都是字符串的拼接，这种过程很繁琐，我们可以借助模板引擎来帮我们做这种事情。"><a href="#8194-8194-8194-8194-getResponseHeader方法是获取响应报文中指定属性的值，在数据进行相应处理之后前台再来决定如何渲染出结果。这种处理大部分都是字符串的拼接，这种过程很繁琐，我们可以借助模板引擎来帮我们做这种事情。" class="headerlink" title="&#8194;&#8194;&#8194;&#8194;getResponseHeader方法是获取响应报文中指定属性的值，在数据进行相应处理之后前台再来决定如何渲染出结果。这种处理大部分都是字符串的拼接，这种过程很繁琐，我们可以借助模板引擎来帮我们做这种事情。"></a>&#8194;&#8194;&#8194;&#8194;getResponseHeader方法是获取响应报文中指定属性的值，在数据进行相应处理之后前台再来决定如何渲染出结果。这种处理大部分都是字符串的拼接，这种过程很繁琐，我们可以借助模板引擎来帮我们做这种事情。</h6><h3 id="五、简单模拟jQuery实现异步请求"><a href="#五、简单模拟jQuery实现异步请求" class="headerlink" title="五、简单模拟jQuery实现异步请求"></a>五、简单模拟jQuery实现异步请求</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">var</span> $=&#123;</div><div class="line">    <span class="comment">/*传入对象参数，返回字符串*/</span></div><div class="line">    <span class="comment">/*flag:1,name:'jack'=&gt;?flag=1&amp;name=jack*/</span></div><div class="line">    getData:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> result=<span class="string">"?"</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> data)&#123;</div><div class="line">            result+=key+<span class="string">"="</span>+data[key]+<span class="string">"&amp;"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">/*?flag=1&amp;name=jack&amp;*/</span></div><div class="line">        <span class="keyword">return</span> result.slice(<span class="number">0</span>,<span class="number">-1</span>);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">        obj.type=<span class="string">"get"</span>;</div><div class="line">        <span class="keyword">this</span>.ajax(obj);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">post</span>:<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">        obj.type=<span class="string">"post"</span>;</div><div class="line">        <span class="keyword">this</span>.ajax(obj);</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">ajax</span>:<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">        <span class="comment">/*判断用户传递的参数*/</span></div><div class="line">        <span class="keyword">if</span>(obj==<span class="literal">null</span> || <span class="keyword">typeof</span> obj!=<span class="string">"object"</span>)&#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">/*实现完整的异步请求*/</span></div><div class="line">        <span class="comment">/*1.接收请求类型*/</span></div><div class="line">        <span class="keyword">var</span> type=obj.type||<span class="string">'get'</span>;</div><div class="line">        <span class="comment">/*2.接收url   location.pathname:当前页面*/</span></div><div class="line">        <span class="keyword">var</span> url=obj.url||location.pathname;</div><div class="line">        <span class="comment">/*3.接收参数*/</span></div><div class="line">        <span class="keyword">var</span> data=obj.data||&#123;&#125;;</div><div class="line">        <span class="comment">/*获取用于传递的拼接的参数字符串*/</span></div><div class="line">        data=<span class="keyword">this</span>.getData(data);</div><div class="line">        <span class="comment">/*4.接收回调函数*/</span></div><div class="line">        <span class="keyword">var</span> success=obj.success||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"></div><div class="line">        <span class="comment">/*5.创建异步对象*/</span></div><div class="line">        <span class="keyword">var</span> xhr=<span class="keyword">new</span> XMLHttpRequest();</div><div class="line">        <span class="comment">/*6.设置请求行*/</span></div><div class="line">        <span class="keyword">if</span>(type==<span class="string">"get"</span>)&#123;</div><div class="line">            url=url+data;</div><div class="line">            data=<span class="literal">null</span>;</div><div class="line">        &#125;</div><div class="line">        xhr.open(type,url);</div><div class="line">        <span class="comment">/*7.设置请求头*/</span></div><div class="line">        <span class="keyword">if</span>(type==<span class="string">"post"</span>)&#123;</div><div class="line">            xhr.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">/*8.设置请求体*/</span></div><div class="line">        xhr.send(data);</div><div class="line"></div><div class="line">        <span class="comment">/*9.监听响应状态*/</span></div><div class="line">        xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">if</span>(xhr.status==<span class="number">200</span> &amp;&amp; xhr.readyState==<span class="number">4</span>)&#123;</div><div class="line">                <span class="comment">/*10.接收返回值，解析*/</span></div><div class="line">                <span class="keyword">var</span> result=<span class="literal">null</span>;</div><div class="line">                <span class="comment">/*11.获取响应头*/</span></div><div class="line">                <span class="keyword">var</span> rh=xhr.getResponseHeader(<span class="string">"Content-Type"</span>);</div><div class="line">                <span class="comment">/*12.解析数据，生成可以使用的数据*/</span></div><div class="line">                <span class="keyword">if</span>(rh.indexOf(<span class="string">"xml"</span>)!=<span class="number">-1</span>)&#123;</div><div class="line">                    result=xhr.responseXML;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(rh.indexOf(<span class="string">"json"</span>)!=<span class="number">-1</span>)&#123;</div><div class="line">                    result=<span class="built_in">JSON</span>.parse(xhr.responseText);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span>&#123;</div><div class="line">                    result=xhr.responseText;</div><div class="line">                &#125;</div><div class="line">                <span class="comment">/*13.调用回调方法*/</span></div><div class="line">                success(result);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/08/JavaScript数组去重/" rel="prev" title="JavaScript 数组去重">
+                JavaScript 数组去重 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <!-- 多说评论框 start -->  
+        <div class="ds-thread" data-thread-key="<%- page.path %>" data-title="<%- page.title %>" data-url="<%- page.permalink %>"></div>  
+  <!-- 多说评论框 end -->  
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"gch0526"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+       || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+  <!-- 多说公共JS代码 end -->
+
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/touxiang.jpg"
+               alt="Guoch" />
+          <p class="site-author-name" itemprop="name">Guoch</p>
+          <p class="site-description motion-element" itemprop="description">一条爱钻研的技术dog</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Guoch0526" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3886973116/home?wvr=5" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Guoch</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
