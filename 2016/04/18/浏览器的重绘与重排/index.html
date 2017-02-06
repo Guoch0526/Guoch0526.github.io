@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="原型指针  __proto__">
+<meta name="description" content="在项目的交互或视觉评审中，我们常常会对一些交互效果质疑，提出这样做不好那样做不好。主要原因是这些效果通常会产生一系列的浏览器重绘(redraw)和重排(reflow)，需要付出高昂的性能代价。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="__proto__与prototype的区别">
-<meta property="og:url" content="http://www.vituyun.com/2016/08/13/prototype与__proto__的区别/index.html">
+<meta property="og:title" content="浏览器的重绘与重排">
+<meta property="og:url" content="http://www.vituyun.com/2016/04/18/浏览器的重绘与重排/index.html">
 <meta property="og:site_name" content="Guoch">
-<meta property="og:description" content="原型指针  __proto__">
-<meta property="og:updated_time" content="2017-02-03T03:35:00.253Z">
+<meta property="og:description" content="在项目的交互或视觉评审中，我们常常会对一些交互效果质疑，提出这样做不好那样做不好。主要原因是这些效果通常会产生一系列的浏览器重绘(redraw)和重排(reflow)，需要付出高昂的性能代价。">
+<meta property="og:updated_time" content="2017-02-06T16:08:25.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="__proto__与prototype的区别">
-<meta name="twitter:description" content="原型指针  __proto__">
+<meta name="twitter:title" content="浏览器的重绘与重排">
+<meta name="twitter:description" content="在项目的交互或视觉评审中，我们常常会对一些交互效果质疑，提出这样做不好那样做不好。主要原因是这些效果通常会产生一系列的浏览器重绘(redraw)和重排(reflow)，需要付出高昂的性能代价。">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://www.vituyun.com/2016/08/13/prototype与__proto__的区别/"/>
+  <link rel="canonical" href="http://www.vituyun.com/2016/04/18/浏览器的重绘与重排/"/>
 
 
 
 
 
-  <title> __proto__与prototype的区别 | Guoch </title>
+  <title> 浏览器的重绘与重排 | Guoch </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +250,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.vituyun.com/2016/08/13/prototype与__proto__的区别/">
+  <link itemprop="mainEntityOfPage" href="http://www.vituyun.com/2016/04/18/浏览器的重绘与重排/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Guoch">
@@ -274,7 +274,7 @@
             
             
               
-                __proto__与prototype的区别
+                浏览器的重绘与重排
               
             
           </h1>
@@ -289,8 +289,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-13T09:46:57+08:00">
-                2016-08-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-18T10:33:54+08:00">
+                2016-04-18
               </time>
             
 
@@ -312,8 +312,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Study-notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Study notes</span>
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
                   </a>
                 </span>
 
@@ -347,10 +347,26 @@
       
 
       
-        <h3 id="原型指针-proto"><a href="#原型指针-proto" class="headerlink" title="原型指针  __proto__"></a>原型指针  __proto__</h3><a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [];       <span class="comment">//相当于  var arr = new Array();</span></div><div class="line"><span class="comment">//Array构造函数的实例的原型指针 __proto__ 指向Array构造函数的原型对象</span></div><div class="line"><span class="built_in">console</span>.log(arr.__proto__ === <span class="built_in">Array</span>.prototype);     <span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="comment">//Array构造函数的原型对象继承自Object</span></div><div class="line"><span class="built_in">console</span>.log(arr.__proto__.__proto__ === <span class="built_in">Object</span>.prototype);      <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.__proto__ === <span class="built_in">Object</span>.prototype);      <span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="comment">//接着往上找Object的原型对象</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__);        <span class="comment">//null</span></div><div class="line"><span class="built_in">console</span>.log(arr.__proto__.__proto__.__proto__);        <span class="comment">//null</span></div><div class="line"></div><div class="line"><span class="comment">//因此所有对象都来自于null对象</span></div></pre></td></tr></table></figure>
-<h3 id="原型对象-prototype"><a href="#原型对象-prototype" class="headerlink" title="原型对象  prototype"></a>原型对象  prototype</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//函数中的原型指向为 Function.prototype</span></div><div class="line"><span class="keyword">var</span> Foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;     <span class="comment">//相当于  var Foo = new Function();  此时Foo函数是Function构造函数的一个实例</span></div><div class="line"><span class="built_in">console</span>.log(Foo.__proto__ === <span class="built_in">Function</span>.prototype);      <span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="comment">//通过Foo函数构造新的实例对象</span></div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Foo();</div><div class="line"><span class="comment">//Foo构造函数的实例的原型指针指向Foo构造函数的原型对象</span></div><div class="line"><span class="built_in">console</span>.log(a.__proto__ === Foo.prototype);     <span class="comment">//true</span></div><div class="line"><span class="comment">//同时Foo构造函数的原型对象又作为Object对象的一个实例</span></div><div class="line"><span class="built_in">console</span>.log(Foo.prototype.__proto__ === <span class="built_in">Object</span>.prototype);      <span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="comment">//在Foo构造函数的原型对象中有一个constructor属性，指向Foo构造函数本身</span></div><div class="line"><span class="built_in">console</span>.log(Foo.prototype.constructor === Foo);     <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(a.constructor === Foo);     <span class="comment">//true  属性查找机制,从自身到原型对象中查找constructor属性</span></div><div class="line"><span class="built_in">console</span>.log(Foo.prototype.constructor === a.constructor);     <span class="comment">//true</span></div></pre></td></tr></table></figure>
-<h3 id="原型链概念"><a href="#原型链概念" class="headerlink" title="原型链概念"></a>原型链概念</h3><h6 id="每一个构造函数都有一个原型对象-prototype-原型对象包含一个指向构造函数的指针-constructor-构造函数的每个实例都有一个指向原型对象的指针-proto-当我们把构造函数A的原型对象作为构造函数B的一个实例-那么构造函数A的原型对象中就会包含有一个指向构造函数B的原型对象的指针-proto-同理-把构造函数B的原型对象作为构造函数C的一个实例-那么构造函数B的原型对象中就会包含有一个指向构造函数C的原型对象的指针-proto-以此类推-就构造出了原型链的基本概念。"><a href="#每一个构造函数都有一个原型对象-prototype-原型对象包含一个指向构造函数的指针-constructor-构造函数的每个实例都有一个指向原型对象的指针-proto-当我们把构造函数A的原型对象作为构造函数B的一个实例-那么构造函数A的原型对象中就会包含有一个指向构造函数B的原型对象的指针-proto-同理-把构造函数B的原型对象作为构造函数C的一个实例-那么构造函数B的原型对象中就会包含有一个指向构造函数C的原型对象的指针-proto-以此类推-就构造出了原型链的基本概念。" class="headerlink" title="　　每一个构造函数都有一个原型对象(prototype),原型对象包含一个指向构造函数的指针(constructor),构造函数的每个实例都有一个指向原型对象的指针(proto);当我们把构造函数A的原型对象作为构造函数B的一个实例,那么构造函数A的原型对象中就会包含有一个指向构造函数B的原型对象的指针(proto);同理,把构造函数B的原型对象作为构造函数C的一个实例,那么构造函数B的原型对象中就会包含有一个指向构造函数C的原型对象的指针(proto);以此类推,就构造出了原型链的基本概念。"></a>　　每一个构造函数都有一个原型对象(prototype),原型对象包含一个指向构造函数的指针(constructor),构造函数的每个实例都有一个指向原型对象的指针(<strong>proto</strong>);当我们把构造函数A的原型对象作为构造函数B的一个实例,那么构造函数A的原型对象中就会包含有一个指向构造函数B的原型对象的指针(<strong>proto</strong>);同理,把构造函数B的原型对象作为构造函数C的一个实例,那么构造函数B的原型对象中就会包含有一个指向构造函数C的原型对象的指针(<strong>proto</strong>);以此类推,就构造出了原型链的基本概念。</h6><h3 id="属性搜索机制"><a href="#属性搜索机制" class="headerlink" title="属性搜索机制"></a>属性搜索机制</h3><h6 id="原型链的意义在于查找对象的属性时，首先在对象所在的位置开始查找，如未找到则一直往其原型对象中找，直到找到Object-prototype的位置，还未找到就返回null"><a href="#原型链的意义在于查找对象的属性时，首先在对象所在的位置开始查找，如未找到则一直往其原型对象中找，直到找到Object-prototype的位置，还未找到就返回null" class="headerlink" title="　　原型链的意义在于查找对象的属性时，首先在对象所在的位置开始查找，如未找到则一直往其原型对象中找，直到找到Object.prototype的位置，还未找到就返回null"></a>　　原型链的意义在于查找对象的属性时，首先在对象所在的位置开始查找，如未找到则一直往其原型对象中找，直到找到Object.prototype的位置，还未找到就返回null</h6>
+        <p>　　在项目的交互或视觉评审中，我们常常会对一些交互效果质疑，提出这样做不好那样做不好。主要原因是这些效果通常会产生一系列的浏览器重绘(redraw)和重排(reflow)，需要付出高昂的性能代价。<br><a id="more"></a><br>　　浏览器从下载文档到显示页面的过程是个复杂的过程，这里包含了重绘和重排。各家浏览器引擎的工作原理略有差别，但也有一定规则。简单讲，通常在文档初次加载时，浏览器引擎会解析HTML文档来构建DOM树，之后根据DOM元素的几何属性构建一棵用于渲染的树。渲染树的每个节点都有大小和边距等属性，类似于盒子模型（由于隐藏元素不需要显示，渲染树中并不包含DOM树中隐藏的元素）。当渲染树构建完成后，浏览器就可以将元素放置到正确的位置了，再根据渲染树节点的样式属性绘制出页面。由于浏览器的流布局，对渲染树的计算通常只需要遍历一次就可以完成。但table及其内部元素除外，它可能需要多次计算才能确定好其在渲染树中节点的属性，通常要花3倍于同等元素的时间。这也是为什么我们要避免使用table做布局的一个原因。<br>　　重绘是一个元素外观的改变所触发的浏览器行为，例如改变visibility、outline、背景色等属性。浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。重绘不会带来重新布局，并不一定伴随重排。<br>　　重排是更明显的一种改变，可以理解为渲染树需要重新计算。下面是常见的触发重排的操作：</p>
+<h6 id="1-DOM元素的几何属性变化"><a href="#1-DOM元素的几何属性变化" class="headerlink" title="　　1. DOM元素的几何属性变化"></a>　　1. DOM元素的几何属性变化</h6><p>　　当DOM元素的几何属性变化时，渲染树中的相关节点就会失效，浏览器会根据DOM元素的变化重新构建渲染树中失效的节点。之后，会根据新的渲染树重新绘制这部分页面。而且，当前元素的重排也许会带来相关元素的重排。例如，容器节点的渲染树改变时，会触发子节点的重新计算，也会触发其后续兄弟节点的重排，祖先节点需要重新计算子节点的尺寸也会产生重排。最后，每个元素都将发生重绘。可见，重排一定会引起浏览器的重绘，一个元素的重排通常会带来一系列的反应，甚至触发整个文档的重排和重绘，性能代价是高昂的。</p>
+<h6 id="2-DOM树的结构变化"><a href="#2-DOM树的结构变化" class="headerlink" title="　　2. DOM树的结构变化"></a>　　2. DOM树的结构变化</h6><p>　　当DOM树的结构变化时，例如节点的增减、移动等，也会触发重排。浏览器引擎布局的过程，类似于树的前序遍历，是一个从上到下从左到右的过程。通常在这个过程中，当前元素不会再影响其前面已经遍历过的元素。所以，如果在body最前面插入一个元素，会导致整个文档的重新渲染，而在其后插入一个元素，则不会影响到前面的元素。</p>
+<h6 id="3-获取某些属性"><a href="#3-获取某些属性" class="headerlink" title="　　3. 获取某些属性"></a>　　3. 获取某些属性</h6><p>　　浏览器引擎可能会针对重排做了优化。比如Opera，它会等到有足够数量的变化发生，或者等到一定的时间，或者等一个线程结束，再一起处理，这样就只发生一次重排。但除了渲染树的直接变化，当获取一些属性时，浏览器为取得正确的值也会触发重排。这样就使得浏览器的优化失效了。这些属性包括：offsetTop、offsetLeft、 offsetWidth、offsetHeight、scrollTop、scrollLeft、scrollWidth、scrollHeight、clientTop、clientLeft、clientWidth、clientHeight、getComputedStyle() (currentStyle in IE)。所以，在多次使用这些值时应进行缓存。<br>    此外，改变元素的一些样式，调整浏览器窗口大小等等也都将触发重排。<br>　　开发中，比较好的实践是尽量减少重排次数和缩小重排的影响范围。例如：</p>
+<ol>
+<li><p>将多次改变样式属性的操作合并成一次操作。例如：<br> JS:</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var changeDiv = document.getElementById(‘changeDiv’);</div><div class="line">changeDiv.style.color = ‘#093′;</div><div class="line">changeDiv.style.background = ‘#eee’;</div><div class="line">changeDiv.style.height = ’200px’;</div></pre></td></tr></table></figure>
+<p> 可以合并为：<br> CSS:</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-class">.changeDiv</span> &#123;</div><div class="line">    <span class="attribute">background</span>: <span class="number">#eee</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#093</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> JS:</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(‘changeDiv’).className = ‘changeDiv’;</div></pre></td></tr></table></figure>
+</li>
+<li><p>将需要多次重排的元素，position属性设为absolute或fixed，这样此元素就脱离了文档流，它的变化不会影响到其他元素。例如有动画效果的元素就最好设置为绝对定位。</p>
+</li>
+<li>在内存中多次操作节点，完成后再添加到文档中去。例如要异步获取表格数据，渲染到页面。可以先取得数据后在内存中构建整个表格的html片段，再一次性添加到文档中去，而不是循环添加每一行。</li>
+<li>由于display属性为none的元素不在渲染树中，对隐藏的元素操作不会引发其他元素的重排。如果要对一个元素进行复杂的操作时，可以先隐藏它，操作完成后再显示。这样只在隐藏和显示时触发2次重排。</li>
+<li>在需要经常获取那些引起浏览器重排的属性值时，要缓存到变量。</li>
+</ol>
+<p>参考文档：<br>　　Loading Web pages<br>　　[<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#browsers" target="_blank" rel="external">http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#browsers</a>]<br>　　Rendering<br>　　[<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/rendering.html#rendering" target="_blank" rel="external">http://www.whatwg.org/specs/web-apps/current-work/multipage/rendering.html#rendering</a>]<br>　　WebCore RenderingI – The Basics<br>　　[<a href="http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/" target="_blank" rel="external">http://www.webkit.org/blog/114/webcore-rendering-i-the-basics/</a>]<br>　　Notes on HTML Reflow<br>　　[<a href="http://www-archive.mozilla.org/newlayout/doc/reflow.html" target="_blank" rel="external">http://www-archive.mozilla.org/newlayout/doc/reflow.html</a>]</p>
+
       
     </div>
 
@@ -376,18 +392,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/08/JavaScript数组去重/" rel="next" title="JavaScript 数组去重">
-                <i class="fa fa-chevron-left"></i> JavaScript 数组去重
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/02/javascript闭包浅析/" rel="prev" title="javascript闭包浅析">
-                javascript闭包浅析 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/07/28/AJAX学习笔记/" rel="prev" title="ajax 学习笔记">
+                ajax 学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
