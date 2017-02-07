@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://www.vituyun.com/2016/06/23/一些正则表达式随记/index.html">
 <meta property="og:site_name" content="Guoch">
 <meta property="og:description" content="获取url中域名、协议正则12345//获取url中域名、协议正则 &apos;http://xxx.xx/xxx&apos;,&apos;https://xxx.xx/xxx&apos;,&apos;//xxx.xx/xxx&apos;/^(http(?:|s)\:)*\/\/([^\/]+)/.test(&quot;http://www.baidu.com&quot;);// 必须有协议 /^[a-zA-Z]+:\/\//.test(&quot;http://www.baidu.c">
-<meta property="og:updated_time" content="2017-02-07T05:31:54.494Z">
+<meta property="og:updated_time" content="2017-02-07T05:54:19.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式学习">
 <meta name="twitter:description" content="获取url中域名、协议正则12345//获取url中域名、协议正则 &apos;http://xxx.xx/xxx&apos;,&apos;https://xxx.xx/xxx&apos;,&apos;//xxx.xx/xxx&apos;/^(http(?:|s)\:)*\/\/([^\/]+)/.test(&quot;http://www.baidu.com&quot;);// 必须有协议 /^[a-zA-Z]+:\/\//.test(&quot;http://www.baidu.c">
@@ -348,6 +348,7 @@
 
       
         <h2 id="获取url中域名、协议正则"><a href="#获取url中域名、协议正则" class="headerlink" title="获取url中域名、协议正则"></a>获取url中域名、协议正则</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取url中域名、协议正则 'http://xxx.xx/xxx','https://xxx.xx/xxx','//xxx.xx/xxx'</span></div><div class="line">/^(http(?:|s)\:)*\/\/([^\/]+)/.test(<span class="string">"http://www.baidu.com"</span>);</div><div class="line"></div><div class="line"><span class="comment">// 必须有协议 </span></div><div class="line">/^[a-zA-Z]+:\/\<span class="comment">//.test("http://www.baidu.com");</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="去除首尾的‘-’"><a href="#去除首尾的‘-’" class="headerlink" title="去除首尾的‘/’"></a>去除首尾的‘/’</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//去除首尾的‘/’</span></div><div class="line">input = input.replace(<span class="regexp">/^\/*|\/*$/g</span>,<span class="string">''</span>);</div></pre></td></tr></table></figure>
 <h2 id="javascript-、javascript-void-0"><a href="#javascript-、javascript-void-0" class="headerlink" title="javascript:: 、javascript:void(0)"></a>javascript:: 、javascript:void(0)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">href.match(<span class="regexp">/^(javascript\s*\:|#)/</span>);</div></pre></td></tr></table></figure>
 <h2 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"access_token=dcb90862-29fb-4b03-93ff-5f0a8f546250; refresh_token=702f4815-a0ff-456c-82ce-24e4d7d619e6; account_uid=1361177947320160506170322436"</span>;</div><div class="line">str.match(<span class="regexp">/account_uid=([^\=]+(\;)|(.*))/ig</span>);</div></pre></td></tr></table></figure>
