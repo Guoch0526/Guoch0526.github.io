@@ -84,16 +84,21 @@
 
 
 
-<meta name="description" content="浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说，目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。   babel 是一个将ES6甚至ES2017转化为ES5代码的一个工具包。在前端自动化构建中可以使用这个工具包进行代码的转换   注意！babel只能将普通的变量声明等方式">
+<meta name="description" content="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。当浏览器碰到 script 脚本的时候：1&amp;lt;script src=&quot;script.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+1、没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签">
 <meta property="og:type" content="article">
-<meta property="og:title" content="babel学习">
-<meta property="og:url" content="http://www.vituyun.com/2016/11/05/babel/index.html">
+<meta property="og:title" content="defer和async的区别">
+<meta property="og:url" content="http://www.vituyun.com/2016/04/20/defer和async的区别/index.html">
 <meta property="og:site_name" content="Guoch">
-<meta property="og:description" content="浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说，目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。   babel 是一个将ES6甚至ES2017转化为ES5代码的一个工具包。在前端自动化构建中可以使用这个工具包进行代码的转换   注意！babel只能将普通的变量声明等方式">
-<meta property="og:updated_time" content="2017-02-11T11:42:10.436Z">
+<meta property="og:description" content="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。当浏览器碰到 script 脚本的时候：1&amp;lt;script src=&quot;script.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+1、没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签">
+<meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/Fetching_a_page.png">
+<meta property="og:updated_time" content="2017-03-01T12:21:57.075Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="babel学习">
-<meta name="twitter:description" content="浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说，目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。   babel 是一个将ES6甚至ES2017转化为ES5代码的一个工具包。在前端自动化构建中可以使用这个工具包进行代码的转换   注意！babel只能将普通的变量声明等方式">
+<meta name="twitter:title" content="defer和async的区别">
+<meta name="twitter:description" content="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。当浏览器碰到 script 脚本的时候：1&amp;lt;script src=&quot;script.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+1、没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/Fetching_a_page.png">
 
 
 
@@ -121,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://www.vituyun.com/2016/11/05/babel/"/>
+  <link rel="canonical" href="http://www.vituyun.com/2016/04/20/defer和async的区别/"/>
 
 
 
 
 
-  <title> babel学习 | Guoch </title>
+  <title> defer和async的区别 | Guoch </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +255,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.vituyun.com/2016/11/05/babel/">
+  <link itemprop="mainEntityOfPage" href="http://www.vituyun.com/2016/04/20/defer和async的区别/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Guoch">
@@ -274,7 +279,7 @@
             
             
               
-                babel学习
+                defer和async的区别
               
             
           </h1>
@@ -289,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-05T10:18:32+08:00">
-                2016-11-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-20T14:26:57+08:00">
+                2016-04-20
               </time>
             
 
@@ -312,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
+                  <a href="/categories/javaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">javaScript</span>
                   </a>
                 </span>
 
@@ -347,44 +352,12 @@
       
 
       
-        <blockquote>
-<p>浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说，目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。<br>   babel 是一个将ES6甚至ES2017转化为ES5代码的一个工具包。在前端自动化构建中可以使用这个工具包进行代码的转换<br>   <strong>注意！babel只能将普通的变量声明等方式，函数的命名方式转换，并没有办法将不支持的函数方法转换。所以需要在引入语法包,来支持新的扩展函数.</strong></p>
-</blockquote>
-<a id="more"></a>
-<h3 id="1-引入babel包"><a href="#1-引入babel包" class="headerlink" title="1.引入babel包"></a>1.引入babel包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install babel-cli -g</div></pre></td></tr></table></figure>
-<h3 id="2-配置-babelrc文件"><a href="#2-配置-babelrc文件" class="headerlink" title="2.配置.babelrc文件"></a>2.配置.babelrc文件</h3><p><strong>新建 .babelrc 文件。</strong></p>
-<ul>
-<li>方法1： window右键新建文本文件 输入 <code>.babelrc.</code>  确认之后就可以了。</li>
-<li>方法2:  直接使用webStorm 创建</li>
-<li>方法3： 使用git bash 创建<ul>
-<li><code>touch .babelrc</code></li>
-<li><code>echo .babelrc  &#39;{ &quot;preset&quot;:[&quot;es2015&quot;] }&#39;</code></li>
-</ul>
-</li>
-<li><p>.babelrc 文件内容</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;:[&quot;es2015&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3-下载语言转换包。"><a href="#3-下载语言转换包。" class="headerlink" title="3.下载语言转换包。"></a>3.下载语言转换包。</h3><pre><code>//如果还没有npm init初始化的需要先初始化。
-//下载在当前文件夹，并且保存在pageage.json中的开发依赖项
-
-npm install babel-preset-es2015 --save-dev
-</code></pre><h3 id="4-babel-命令"><a href="#4-babel-命令" class="headerlink" title="4.babel 命令"></a>4.babel 命令</h3><pre><code>babel 要转换的文件路径  -o  要保存的文件路径  （包括文件名.js）
-</code></pre><ul>
-<li>例子<ul>
-<li><code>babel index.js -o index1.js</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><pre><code>babel只能将es6语法转换为es5，但是并不能将es6新扩展的方法函数给转换。如promies异步函数等。
-在ie中，并不能很好的支持es6.所以如果我们需要在浏览器中使用es6的新函数，那么就需要引入es6的扩展包。
-在babel中提供了一个polyfill.js文件来当作垫片。需要在html文件中引入这个js文件来支持es6扩展的函数方法
-</code></pre><h4 id="5-下载-babel–polyfill垫片；"><a href="#5-下载-babel–polyfill垫片；" class="headerlink" title="5.下载 babel–polyfill垫片；"></a>5.下载 babel–polyfill垫片；</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//如果还没有npm init初始化的需要先初始化。</div><div class="line">//下载在当前文件夹，并且保存在pageage.json中的生产环境依赖项</div><div class="line">npm install babel-polyfill --save</div></pre></td></tr></table></figure>
-<ul>
-<li>需要在html中引入这个polyfill这个文件就好了。</li>
-<li>在需要扩展es6代码的文件中，使用 <code>require(&#39;babel-polyfill&#39;);</code> 来引入这个扩展包。</li>
-</ul>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>引入es6新扩展的函数包，是一个比较耗性能的问题，必定会产生新的问题。<br>es6浏览器的支持并不理想</p>
+        <h4 id="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。"><a href="#在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。" class="headerlink" title="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。"></a>在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。</h4><h5 id="当浏览器碰到-script-脚本的时候："><a href="#当浏览器碰到-script-脚本的时候：" class="headerlink" title="当浏览器碰到 script 脚本的时候："></a>当浏览器碰到 script 脚本的时候：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"script.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>1、没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="keyword">async</span> src=<span class="string">"script.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>2、有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script defer src=<span class="string">"myscript.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>3、有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
+<h5 id="然后从实用角度来说呢，首先把所有脚本都丢到-之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。"><a href="#然后从实用角度来说呢，首先把所有脚本都丢到-之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。" class="headerlink" title="然后从实用角度来说呢，首先把所有脚本都丢到  之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。"></a>然后从实用角度来说呢，首先把所有脚本都丢到  之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。</h5><h5 id="接着，我们来看一张图："><a href="#接着，我们来看一张图：" class="headerlink" title="接着，我们来看一张图："></a>接着，我们来看一张图：</h5><p><img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/Fetching_a_page.png" alt=""></p>
+<h5 id="蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表-HTML-解析。"><a href="#蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表-HTML-解析。" class="headerlink" title="蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。"></a>蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。</h5><h5 id="此图告诉我们以下几个要点："><a href="#此图告诉我们以下几个要点：" class="headerlink" title="此图告诉我们以下几个要点："></a>此图告诉我们以下几个要点：</h5><p>1、defer 和 async 在网络读取（下载）这块儿是一样的，都是异步的（相较于 HTML 解析）<br>2、它俩的差别在于脚本下载完之后何时执行，显然 defer 是最接近我们对于应用脚本加载和执行的要求的<br>3、关于 defer，此图未尽之处在于它是按照加载顺序执行脚本的，这一点要善加利用<br>4、async 则是一个乱序执行的主，反正对它来说脚本的加载和执行是紧紧挨着的，所以不管你声明的顺序如何，只要它加载完了就会立刻执行<br>5、仔细想想，async 对于应用脚本的用处不大，因为它完全不考虑依赖（哪怕是最低级的顺序执行），不过它对于那些可以不依赖任何脚本或不被任何脚本依赖的脚本来说却是非常合适的，最典型的例子：Google Analytics</p>
 
       
     </div>
@@ -411,8 +384,8 @@ npm install babel-preset-es2015 --save-dev
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/20/理解javascript中的this/" rel="next" title="理解javascript中的this">
-                <i class="fa fa-chevron-left"></i> 理解javascript中的this
+              <a href="/2016/04/18/浏览器的重绘与重排/" rel="next" title="浏览器的重绘与重排">
+                <i class="fa fa-chevron-left"></i> 浏览器的重绘与重排
               </a>
             
           </div>
@@ -421,8 +394,8 @@ npm install babel-preset-es2015 --save-dev
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/24/HTTP-Status-codes/" rel="prev" title="常见HTTP/FTP/WebSocket错误代码大全">
-                常见HTTP/FTP/WebSocket错误代码大全 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/13/prototype与__proto__的区别/" rel="prev" title="__proto__与prototype的区别">
+                __proto__与prototype的区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
