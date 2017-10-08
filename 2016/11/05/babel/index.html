@@ -20,16 +20,16 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说，目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。   babel 是一个将ES6甚至ES2017转化为ES5代码的一个工具包。在前端自动化构建中可以使用这个工具包进行代码的转换   注意！babel只能将普通的变量声明等方式">
+    <meta name="description" content="由于浏览器对ES2015(es6)新的语法的支持并不是很理想，所以如果我们要使用es6来进行开发的话会带来一些问题。目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="babel学习">
 <meta property="og:url" content="http://www.vituyun.com/2016/11/05/babel/index.html">
 <meta property="og:site_name" content="Guoch">
-<meta property="og:description" content="浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说，目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。   babel 是一个将ES6甚至ES2017转化为ES5代码的一个工具包。在前端自动化构建中可以使用这个工具包进行代码的转换   注意！babel只能将普通的变量声明等方式">
-<meta property="og:updated_time" content="2017-10-07T11:32:11.497Z">
+<meta property="og:description" content="由于浏览器对ES2015(es6)新的语法的支持并不是很理想，所以如果我们要使用es6来进行开发的话会带来一些问题。目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。">
+<meta property="og:updated_time" content="2017-10-08T00:40:04.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="babel学习">
-<meta name="twitter:description" content="浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说，目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。   babel 是一个将ES6甚至ES2017转化为ES5代码的一个工具包。在前端自动化构建中可以使用这个工具包进行代码的转换   注意！babel只能将普通的变量声明等方式">
+<meta name="twitter:description" content="由于浏览器对ES2015(es6)新的语法的支持并不是很理想，所以如果我们要使用es6来进行开发的话会带来一些问题。目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -103,16 +103,6 @@
         </a>
         <div class="flex-col header-title ellipsis">babel学习</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
         
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
@@ -174,9 +164,9 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <blockquote>
-<p>浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说，目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。<br>   babel 是一个将ES6甚至ES2017转化为ES5代码的一个工具包。在前端自动化构建中可以使用这个工具包进行代码的转换<br>   <strong>注意！babel只能将普通的变量声明等方式，函数的命名方式转换，并没有办法将不支持的函数方法转换。所以需要在引入语法包,来支持新的扩展函数.</strong></p>
+<p>由于浏览器对ES2015(es6)新的语法的支持并不是很理想，所以如果我们要使用es6来进行开发的话会带来一些问题。目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。<br><a id="more"></a></p>
 </blockquote>
-<a id="more"></a>
+<p>   babel 是一个将ES6甚至ES2017转化为ES5代码的一个工具包。在前端自动化构建中可以使用这个工具包进行代码的转换<br>   <strong>注意：babel只能将普通的变量声明等方式，函数的命名方式转换，并没有办法将不支持的函数方法转换。所以需要在引入语法包,来支持新的扩展函数.</strong></p>
 <h3 id="1-引入babel包"><a href="#1-引入babel包" class="headerlink" title="1.引入babel包"></a>1.引入babel包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install babel-cli -g</div></pre></td></tr></table></figure>
 <h3 id="2-配置-babelrc文件"><a href="#2-配置-babelrc文件" class="headerlink" title="2.配置.babelrc文件"></a>2.配置.babelrc文件</h3><p><strong>新建 .babelrc 文件。</strong></p>
 <ul>
@@ -210,20 +200,16 @@ npm install babel-preset-es2015 --save-dev
 <li>需要在html中引入这个polyfill这个文件就好了。</li>
 <li>在需要扩展es6代码的文件中，使用 <code>require(&#39;babel-polyfill&#39;);</code> 来引入这个扩展包。</li>
 </ul>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>引入es6新扩展的函数包，是一个比较耗性能的问题，必定会产生新的问题。<br>es6浏览器的支持并不理想</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>引入es6新扩展的函数包，是一个比较耗性能的问题，必定会产生新的问题。</p>
 
         </div>
 
         <blockquote class="post-copyright">
-    <div class="content">
+    <!-- <div class="content">
         
-<span class="post-time">
-    Last updated: <time datetime="2017-10-07T11:32:11.497Z" itemprop="dateUpdated">2017-10-07 19:32:11</time>
-</span><br>
-
 
         
-    </div>
+    </div> -->
     <footer>
         <a href="http://www.vituyun.com">
             <img src="/img/avatar.jpg" alt="Guoch">
@@ -260,7 +246,7 @@ npm install babel-preset-es2015 --save-dev
       </li>
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2016/11/05/babel/&title=《babel学习》 — Guoch&source=
-浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说..." data-title=" QQ">
+由于浏览器对ES2015(es6)新的语法的支持并不是很理想，所以如果我们要使用es6来进行开发的话会带来一些问题。目前的解决方案是使用es6编写代码，..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -379,7 +365,7 @@ npm install babel-preset-es2015 --save-dev
         <p>
             This blog is licensed under a
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -413,7 +399,7 @@ npm install babel-preset-es2015 --save-dev
       </li>
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2016/11/05/babel/&title=《babel学习》 — Guoch&source=
-浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说..." data-title=" QQ">
+由于浏览器对ES2015(es6)新的语法的支持并不是很理想，所以如果我们要使用es6来进行开发的话会带来一些问题。目前的解决方案是使用es6编写代码，..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -453,26 +439,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 </script>
 
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 

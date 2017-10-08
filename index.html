@@ -102,16 +102,6 @@
         </a>
         <div class="flex-col header-title ellipsis">Guoch</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
         
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
@@ -168,11 +158,17 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p><img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/gulp_logo.png" alt=""><br>
+        <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/gulp_logo.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
     
 
         <a href="/2017/04/23/gulp常用插件学习总结/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -219,7 +215,7 @@
     
 
         <a href="/2017/01/18/node.js实现简易爬虫程序/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -262,7 +258,7 @@
     
 
         <a href="/2016/12/09/jquery中extend函数实现解析/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -300,12 +296,11 @@
 
     
         <blockquote>
-<p><a href="https://github.com/AlloyTeam/AlloyFinger">AlloyFinger</a> 是腾讯前端团队推出的一个移动端手势库，针对多点触控设备编程的Web手势组件，快速帮助你的web程序增加手势支持，也不用再担心click 300ms的延迟了。除了Dom对象，也可监听Canvas内元素的手势（需要Canvas引擎内置对象支持addEventListener绑定touch相关事件）。<br>据不完全统计，目前AlloyFinger服务于：兴趣部落、QQ群、QQ动漫、腾讯学院、TEDxTencent、 AlloyTeam、腾讯CDC等多个部门、团队和项目<br>特点：文件小，API简洁，性能优秀，手势丰富，上手简单</p>
-</blockquote>
+<p><a href="https://github.com/AlloyTeam/AlloyFinger">AlloyFinger</a> 是腾讯前端团队推出的一个移动端手势库，针对多点触控设备编程的Web手势组件，快速帮助你的web程序增加手势支持，也不用再担心click 300ms的延迟了。除了Dom对象，也可监听Canvas内元素的手势（需要Canvas引擎内置对象支持addEventListener绑定touch相关事件）。<br>
     
 
         <a href="/2016/12/06/alloy-finger-源码注释/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -342,11 +337,17 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p><img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/Fetching_a_page.png" alt=""></p>
+        <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/Fetching_a_page.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
     
 
         <a href="/2016/11/24/HTTP-Status-codes/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -384,12 +385,11 @@
 
     
         <blockquote>
-<p>浏览器对ES2015(es6)新的语法的支持并不是很理想。所以如果我们要实用es6来进行前端网址开发会带来一些问题。现阶段，对于习惯写es6的攻城师来说，目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。<br>   babel 是一个将ES6甚至ES2017转化为ES5代码的一个工具包。在前端自动化构建中可以使用这个工具包进行代码的转换<br>   <strong>注意！babel只能将普通的变量声明等方式，函数的命名方式转换，并没有办法将不支持的函数方法转换。所以需要在引入语法包,来支持新的扩展函数.</strong></p>
-</blockquote>
+<p>由于浏览器对ES2015(es6)新的语法的支持并不是很理想，所以如果我们要使用es6来进行开发的话会带来一些问题。目前的解决方案是使用es6编写代码，最后将es6代码转为es5代码。<br>
     
 
         <a href="/2016/11/05/babel/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -426,13 +426,11 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>　　在学习javascript的过程中，有时候对于this的指向感觉迷迷糊糊的，在查阅了相关资料之后针对javascript中的this做一个总结。</p>
-<h1 id="全局执行"><a href="#全局执行" class="headerlink" title="全局执行"></a>全局执行</h1><hr>
-<p>　　首先，我们在全局环境中看看它的this是什么：<br>
+        <p>　　在学习javascript的过程中，有时候对于this的指向感觉迷迷糊糊的，所以我在查阅了相关资料之后针对javascript中的this做一个总结。<br>
     
 
         <a href="/2016/09/20/理解javascript中的this/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -469,12 +467,11 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>　　闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。理解闭包能加深我们对javascript语言的认识。</p>
-<h2 id="一、变量的作用域"><a href="#一、变量的作用域" class="headerlink" title="一、变量的作用域"></a>一、变量的作用域</h2><p>　　要理解闭包，首先必须理解Javascript特殊的变量作用域。变量的作用域无非就是两种：全局变量和局部变量。Javascript语言的特殊之处，就在于函数内部可以直接读取全局变量。<br>
+        <p>　　闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。理解闭包能加深我们对javascript语言的认识。<br>
     
 
         <a href="/2016/09/02/javascript闭包浅析/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -515,17 +512,11 @@
 <li><a href="#配置">配置</a></li>
 <li><a href="#修改项目中的个人信息">修改项目中的个人信息</a></li>
 <li><a href="#多账号ssh配置">多账号ssh配置</a></li>
-<li><a href="#免密登录">免密登录</a></li>
-<li><a href="#Git推向3个库">Git推向3个库</a><ul>
-<li><a href="#增加3个远程库地址">增加3个远程库地址</a></li>
-<li><a href="#删除其中一个-set-url-地址">删除其中一个 set-url 地址</a></li>
-<li><a href="#push">push</a></li>
-<li><a href="#pull">pull</a></li>
-<li><a href="#更改pull">更改pull</a>
+<li><a href="#免密登录">免密登录</a>
     
 
         <a href="/2016/07/28/Git常用命令清单/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -566,7 +557,7 @@
     
 
         <a href="/2016/06/13/prototype与__proto__的区别/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -604,7 +595,7 @@
         <p>
             This blog is licensed under a
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -677,26 +668,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 

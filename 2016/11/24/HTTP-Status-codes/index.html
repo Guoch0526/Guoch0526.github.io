@@ -102,16 +102,6 @@
         </a>
         <div class="flex-col header-title ellipsis">常见HTTP/FTP/WebSocket错误代码大全</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
         
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
@@ -172,7 +162,13 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p><img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/Fetching_a_page.png" alt=""></p>
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/Fetching_a_page.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <a id="more"></a> 
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
 <li><a href="#HTTP">HTTP</a><ul>
@@ -482,15 +478,11 @@
         </div>
 
         <blockquote class="post-copyright">
-    <div class="content">
+    <!-- <div class="content">
         
-<span class="post-time">
-    Last updated: <time datetime="2017-06-30T08:39:16.579Z" itemprop="dateUpdated">2017-06-30 16:39:16</time>
-</span><br>
-
 
         
-    </div>
+    </div> -->
     <footer>
         <a href="http://www.vituyun.com">
             <img src="/img/avatar.jpg" alt="Guoch">
@@ -526,7 +518,12 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2016/11/24/HTTP-Status-codes/&title=《常见HTTP/FTP/WebSocket错误代码大全》 — Guoch&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2016/11/24/HTTP-Status-codes/&title=《常见HTTP/FTP/WebSocket错误代码大全》 — Guoch&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -645,7 +642,7 @@
         <p>
             This blog is licensed under a
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -678,7 +675,12 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2016/11/24/HTTP-Status-codes/&title=《常见HTTP/FTP/WebSocket错误代码大全》 — Guoch&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2016/11/24/HTTP-Status-codes/&title=《常见HTTP/FTP/WebSocket错误代码大全》 — Guoch&source=
+                
+                    
+                    
+                
+..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -718,26 +720,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 </script>
 
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 

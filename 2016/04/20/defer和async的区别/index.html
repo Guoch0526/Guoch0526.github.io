@@ -20,20 +20,17 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。当浏览器碰到 script 脚本的时候：1&amp;lt;script src=&quot;script.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-1、没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签">
+    <meta name="description" content="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="defer和async的区别">
 <meta property="og:url" content="http://www.vituyun.com/2016/04/20/defer和async的区别/index.html">
 <meta property="og:site_name" content="Guoch">
-<meta property="og:description" content="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。当浏览器碰到 script 脚本的时候：1&amp;lt;script src=&quot;script.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-1、没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签">
+<meta property="og:description" content="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。">
 <meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/defer-async.jpg">
-<meta property="og:updated_time" content="2017-03-01T12:26:37.128Z">
+<meta property="og:updated_time" content="2017-10-08T00:43:31.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="defer和async的区别">
-<meta name="twitter:description" content="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。当浏览器碰到 script 脚本的时候：1&amp;lt;script src=&quot;script.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-1、没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签">
+<meta name="twitter:description" content="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/defer-async.jpg">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
@@ -108,16 +105,6 @@
         </a>
         <div class="flex-col header-title ellipsis">defer和async的区别</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
         
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
@@ -153,7 +140,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。"><span class="post-toc-number">1.</span> <span class="post-toc-text">在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#当浏览器碰到-script-脚本的时候："><span class="post-toc-number">1.1.</span> <span class="post-toc-text">当浏览器碰到 script 脚本的时候：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#然后从实用角度来说呢，首先把所有脚本都丢到-之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">然后从实用角度来说呢，首先把所有脚本都丢到  之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#接着，我们来看一张图："><span class="post-toc-number">1.3.</span> <span class="post-toc-text">接着，我们来看一张图：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表-HTML-解析。"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#此图告诉我们以下几个要点："><span class="post-toc-number">1.5.</span> <span class="post-toc-text">此图告诉我们以下几个要点：</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#当浏览器碰到-script-脚本的时候："><span class="post-toc-number">1.</span> <span class="post-toc-text">当浏览器碰到 script 脚本的时候：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#然后从实用角度来说呢，首先把所有脚本都丢到-之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。"><span class="post-toc-number">2.</span> <span class="post-toc-text">然后从实用角度来说呢，首先把所有脚本都丢到  之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#接着，我们来看一张图："><span class="post-toc-number">3.</span> <span class="post-toc-text">接着，我们来看一张图：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表-HTML-解析。"><span class="post-toc-number">4.</span> <span class="post-toc-text">蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#此图告诉我们以下几个要点："><span class="post-toc-number">5.</span> <span class="post-toc-text">此图告诉我们以下几个要点：</span></a></li></ol>
         </nav>
     </aside>
     
@@ -178,25 +165,28 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。"><a href="#在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。" class="headerlink" title="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。"></a>在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。</h4><h5 id="当浏览器碰到-script-脚本的时候："><a href="#当浏览器碰到-script-脚本的时候：" class="headerlink" title="当浏览器碰到 script 脚本的时候："></a>当浏览器碰到 script 脚本的时候：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"script.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+            <p>　　在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。<br><a id="more"></a></p>
+<h5 id="当浏览器碰到-script-脚本的时候："><a href="#当浏览器碰到-script-脚本的时候：" class="headerlink" title="当浏览器碰到 script 脚本的时候："></a>当浏览器碰到 script 脚本的时候：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"script.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 <p>1、没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="keyword">async</span> src=<span class="string">"script.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
 <p>2、有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script defer src=<span class="string">"myscript.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
 <p>3、有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
-<h5 id="然后从实用角度来说呢，首先把所有脚本都丢到-之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。"><a href="#然后从实用角度来说呢，首先把所有脚本都丢到-之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。" class="headerlink" title="然后从实用角度来说呢，首先把所有脚本都丢到  之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。"></a>然后从实用角度来说呢，首先把所有脚本都丢到  之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。</h5><h5 id="接着，我们来看一张图："><a href="#接着，我们来看一张图：" class="headerlink" title="接着，我们来看一张图："></a>接着，我们来看一张图：</h5><p><img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/defer-async.jpg" alt=""></p>
+<h5 id="然后从实用角度来说呢，首先把所有脚本都丢到-之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。"><a href="#然后从实用角度来说呢，首先把所有脚本都丢到-之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。" class="headerlink" title="然后从实用角度来说呢，首先把所有脚本都丢到  之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。"></a>然后从实用角度来说呢，首先把所有脚本都丢到  之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。</h5><h5 id="接着，我们来看一张图："><a href="#接着，我们来看一张图：" class="headerlink" title="接着，我们来看一张图："></a>接着，我们来看一张图：</h5><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/defer-async.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h5 id="蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表-HTML-解析。"><a href="#蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表-HTML-解析。" class="headerlink" title="蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。"></a>蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。</h5><h5 id="此图告诉我们以下几个要点："><a href="#此图告诉我们以下几个要点：" class="headerlink" title="此图告诉我们以下几个要点："></a>此图告诉我们以下几个要点：</h5><p>1、defer 和 async 在网络读取（下载）这块儿是一样的，都是异步的（相较于 HTML 解析）<br>2、它俩的差别在于脚本下载完之后何时执行，显然 defer 是最接近我们对于应用脚本加载和执行的要求的<br>3、关于 defer，此图未尽之处在于它是按照加载顺序执行脚本的，这一点要善加利用<br>4、async 则是一个乱序执行的主，反正对它来说脚本的加载和执行是紧紧挨着的，所以不管你声明的顺序如何，只要它加载完了就会立刻执行<br>5、仔细想想，async 对于应用脚本的用处不大，因为它完全不考虑依赖（哪怕是最低级的顺序执行），不过它对于那些可以不依赖任何脚本或不被任何脚本依赖的脚本来说却是非常合适的，最典型的例子：Google Analytics</p>
 
         </div>
 
         <blockquote class="post-copyright">
-    <div class="content">
+    <!-- <div class="content">
         
-<span class="post-time">
-    Last updated: <time datetime="2017-03-01T12:26:37.128Z" itemprop="dateUpdated">2017-03-01 20:26:37</time>
-</span><br>
-
 
         
-    </div>
+    </div> -->
     <footer>
         <a href="http://www.vituyun.com">
             <img src="/img/avatar.jpg" alt="Guoch">
@@ -232,7 +222,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2016/04/20/defer和async的区别/&title=《defer和async的区别》 — Guoch&source=爱生活，爱前端，爱coding" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2016/04/20/defer和async的区别/&title=《defer和async的区别》 — Guoch&source=　　在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -351,7 +341,7 @@
         <p>
             This blog is licensed under a
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -384,7 +374,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2016/04/20/defer和async的区别/&title=《defer和async的区别》 — Guoch&source=爱生活，爱前端，爱coding" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2016/04/20/defer和async的区别/&title=《defer和async的区别》 — Guoch&source=　　在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -424,26 +414,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 </script>
 
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 

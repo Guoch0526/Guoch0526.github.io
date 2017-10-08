@@ -102,16 +102,6 @@
         </a>
         <div class="flex-col header-title ellipsis">Guoch</div>
         
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
         
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
             <i class="icon icon-lg icon-share-alt"></i>
@@ -168,17 +158,11 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h4 id="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。"><a href="#在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。" class="headerlink" title="在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。"></a>在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。</h4><h5 id="当浏览器碰到-script-脚本的时候："><a href="#当浏览器碰到-script-脚本的时候：" class="headerlink" title="当浏览器碰到 script 脚本的时候："></a>当浏览器碰到 script 脚本的时候：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"script.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-<p>1、没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script 标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script <span class="keyword">async</span> src=<span class="string">"script.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>2、有 async，加载和渲染后续文档元素的过程将和 script.js 的加载与执行并行进行（异步）。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script defer src=<span class="string">"myscript.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>3、有 defer，加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</p>
-<h5 id="然后从实用角度来说呢，首先把所有脚本都丢到-之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。"><a href="#然后从实用角度来说呢，首先把所有脚本都丢到-之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。" class="headerlink" title="然后从实用角度来说呢，首先把所有脚本都丢到  之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。"></a>然后从实用角度来说呢，首先把所有脚本都丢到  之前是最佳实践，因为对于旧浏览器来说这是唯一的优化选择，此法可保证非脚本的其他一切元素能够以最快的速度得到加载和解析。</h5><h5 id="接着，我们来看一张图："><a href="#接着，我们来看一张图：" class="headerlink" title="接着，我们来看一张图："></a>接着，我们来看一张图：</h5><p><img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/defer-async.jpg" alt=""></p>
-<h5 id="蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表-HTML-解析。"><a href="#蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表-HTML-解析。" class="headerlink" title="蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。"></a>蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。</h5><h5 id="此图告诉我们以下几个要点："><a href="#此图告诉我们以下几个要点：" class="headerlink" title="此图告诉我们以下几个要点："></a>此图告诉我们以下几个要点：</h5><p>1、defer 和 async 在网络读取（下载）这块儿是一样的，都是异步的（相较于 HTML 解析）<br>2、它俩的差别在于脚本下载完之后何时执行，显然 defer 是最接近我们对于应用脚本加载和执行的要求的<br>3、关于 defer，此图未尽之处在于它是按照加载顺序执行脚本的，这一点要善加利用<br>4、async 则是一个乱序执行的主，反正对它来说脚本的加载和执行是紧紧挨着的，所以不管你声明的顺序如何，只要它加载完了就会立刻执行<br>5、仔细想想，async 对于应用脚本的用处不大，因为它完全不考虑依赖（哪怕是最低级的顺序执行），不过它对于那些可以不依赖任何脚本或不被任何脚本依赖的脚本来说却是非常合适的，最典型的例子：Google Analytics</p>
-
+        <p>　　在js文件加载的时候，通常我们都是把js文件置于页面底部，以防止会出现阻塞DOM渲染的情况，我们可以使用defer或者async来实现异步加载js文件。<br>
     
 
         <a href="/2016/04/20/defer和async的区别/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -219,7 +203,7 @@
     
 
         <a href="/2016/04/18/浏览器的重绘与重排/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -262,7 +246,7 @@
     
 
         <a href="/2016/03/23/正则表达式基本规则/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -299,11 +283,11 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h2 id="一、AJAX定义"><a href="#一、AJAX定义" class="headerlink" title="一、AJAX定义"></a>一、AJAX定义</h2><p>　　生活中有一个很常见的例子，很多网页都有登录注册页面，在很久以前，传统的数据验证是需要等用户把要填的每一项都填好之后，点击提交按钮，数据传输到后台。如果你的运气很不好，那么不好意思，页面给你提示数据格式有误。之前花费很多时间填写的数据在页面刷新之后都给你清空了，那么你就需要重新一步一步的来填写数据。很明显，这种用户体验非常不好。因此就诞生了一个异步交互的理念，用户每填写一项数据就自动向后台进行验证，同时要注意的是当前页面并没有刷新，只是会局部刷新。
+        <h2 id="一、AJAX定义"><a href="#一、AJAX定义" class="headerlink" title="一、AJAX定义"></a>一、AJAX定义</h2><p>　　生活中有一个很常见的例子，很多网页都有登录注册页面，在很久以前，传统的数据验证是需要等用户把要填的每一项都填好之后，点击提交按钮，数据传输到后台。如果你的运气很不好，那么不好意思，页面给你提示数据格式有误。之前花费很多时间填写的数据在页面刷新之后都给你清空了，那么你就需要重新一步一步的来填写数据。<br>　　很明显，这种用户体验非常不好。因此就诞生了一个异步交互的理念，用户每填写一项数据就自动向后台进行验证，同时要注意的是当前页面并没有刷新，只是会局部刷新。<br>
     
 
         <a href="/2015/12/28/AJAX学习笔记/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -345,7 +329,7 @@
     
 
         <a href="/2015/11/08/JavaScript数组去重/" class="post-more waves-effect waves-button">
-            Continue reading...
+            閱讀全文…
         </a>
     </div>
     
@@ -383,7 +367,7 @@
         <p>
             This blog is licensed under a
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -456,26 +440,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </script>
 
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
