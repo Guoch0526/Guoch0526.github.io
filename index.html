@@ -130,6 +130,56 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-使用express配合rap配置vue本地开发环境"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-19 18:16:50" datetime="2017-08-19T10:16:50.000Z"  itemprop="datePublished">2017-08-19</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/vue/">vue</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/08/19/使用express配合rap配置vue本地开发环境/">使用express配合rap配置vue本地开发环境</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　近期在做 vue 单页项目，采用的开发方式是前后端分离的模式。后端只提供接口，前端负责数据获取与展现，接口文档写在 <a href="http://rapapi.org/org/index.do" target="_blank" rel="external">rap</a> 上。不得不说现在这种开发方式大大提高了我们程序猿的效率。</p>
+<h2 id="技术点"><a href="#技术点" class="headerlink" title="技术点"></a>技术点</h2><p>　　node + express + vue</p>
+<h2 id="总体描述"><a href="#总体描述" class="headerlink" title="总体描述"></a>总体描述</h2><ul>
+<li>[x] 接口统一管理</li>
+<li>[x] 支持跨域访问</li>
+<li>[x] mock 数据与测试环境分离</li>
+</ul>
+<h2 id="项目运行"><a href="#项目运行" class="headerlink" title="项目运行"></a>项目运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">　　git <span class="built_in">clone</span> https://github.com/Guoch0526/vue-mock-demo.git</div><div class="line"></div><div class="line">　　<span class="built_in">cd</span> vue-mock-demo</div><div class="line"></div><div class="line">　　npm install</div><div class="line"></div><div class="line">　　// 安装好依赖之后,找到 rap_server 文件夹中的 config-rap.js, 替换为你的rap项目基本配置</div><div class="line">  </div><div class="line">　　// 接口统一写在 src/api-irls/index.js 中, 接着：</div><div class="line"></div><div class="line">　　npm run start</div><div class="line"></div><div class="line">　　大功告成</div></pre></td></tr></table></figure>
+<h2 id="项目总体结构"><a href="#项目总体结构" class="headerlink" title="项目总体结构"></a>项目总体结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">├── build                                       // webpack配置文件</div><div class="line">├── config                                      // 项目(代理)配置</div><div class="line">├── rap_server                                  // rap服务器配置</div><div class="line">├── src                                         // 资源目录</div><div class="line">│   ├── api-urls                                // 接口配置</div><div class="line">│   ├── assets                                  // 公共资源</div><div class="line">│   ├── components                              // 组件</div><div class="line">│   ├── router                                  // 页面路由</div><div class="line">│   ├── App.vue                                 // 页面入口文件</div><div class="line">│   ├── main.js                                 // 程序主入口</div><div class="line">├── package.json                                // 包</div><div class="line">├── index.html                                  // 入口html文件</div></pre></td></tr></table></figure>
+
+    
+
+        <a href="/2017/08/19/使用express配合rap配置vue本地开发环境/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-gulp常用插件学习总结"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -168,7 +218,7 @@
     
 
         <a href="/2017/04/23/gulp常用插件学习总结/" class="post-more waves-effect waves-button">
-            Continue reading...
+            阅读全文…
         </a>
     </div>
     
@@ -215,7 +265,7 @@
     
 
         <a href="/2017/01/18/node.js实现简易爬虫程序/" class="post-more waves-effect waves-button">
-            Continue reading...
+            阅读全文…
         </a>
     </div>
     
@@ -258,7 +308,7 @@
     
 
         <a href="/2016/12/09/jquery中extend函数实现解析/" class="post-more waves-effect waves-button">
-            Continue reading...
+            阅读全文…
         </a>
     </div>
     
@@ -300,7 +350,7 @@
     
 
         <a href="/2016/12/06/alloy-finger-源码注释/" class="post-more waves-effect waves-button">
-            Continue reading...
+            阅读全文…
         </a>
     </div>
     
@@ -347,7 +397,7 @@
     
 
         <a href="/2016/11/24/HTTP-Status-codes/" class="post-more waves-effect waves-button">
-            Continue reading...
+            阅读全文…
         </a>
     </div>
     
@@ -389,7 +439,7 @@
     
 
         <a href="/2016/11/05/babel/" class="post-more waves-effect waves-button">
-            Continue reading...
+            阅读全文…
         </a>
     </div>
     
@@ -430,7 +480,7 @@
     
 
         <a href="/2016/09/20/理解javascript中的this/" class="post-more waves-effect waves-button">
-            Continue reading...
+            阅读全文…
         </a>
     </div>
     
@@ -471,7 +521,7 @@
     
 
         <a href="/2016/09/02/javascript闭包浅析/" class="post-more waves-effect waves-button">
-            Continue reading...
+            阅读全文…
         </a>
     </div>
     
@@ -512,48 +562,7 @@
     
 
         <a href="/2016/07/28/Git常用命令清单/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-prototype与__proto__的区别"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-06-13 09:46:57" datetime="2016-06-13T01:46:57.000Z"  itemprop="datePublished">2016-06-13</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Study-notes/">Study notes</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/06/13/prototype与__proto__的区别/">__proto__与prototype的区别</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h3 id="原型指针-proto"><a href="#原型指针-proto" class="headerlink" title="原型指针  __proto__"></a>原型指针  __proto__</h3>
-    
-
-        <a href="/2016/06/13/prototype与__proto__的区别/" class="post-more waves-effect waves-button">
-            Continue reading...
+            阅读全文…
         </a>
     </div>
     
@@ -590,7 +599,7 @@
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
