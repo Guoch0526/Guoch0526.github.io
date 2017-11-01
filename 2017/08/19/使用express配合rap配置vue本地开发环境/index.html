@@ -25,7 +25,8 @@
 <meta property="og:url" content="http://www.vituyun.com/2017/08/19/使用express配合rap配置vue本地开发环境/index.html">
 <meta property="og:site_name" content="Guoch">
 <meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/express-vue-mock.jpg">
-<meta property="og:updated_time" content="2017-11-01T10:05:46.756Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/rap-projectId.png">
+<meta property="og:updated_time" content="2017-11-01T10:06:55.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用express配合rap配置vue本地开发环境">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/express-vue-mock.jpg">
@@ -170,7 +171,13 @@
                 <div class="image-caption"></div>
             </figure>
 <a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　近期在做 vue 单页项目，采用的开发方式是前后端分离的模式。后端只提供接口，前端负责数据获取与展现，接口文档写在 <a href="http://rapapi.org/org/index.do" target="_blank" rel="external">rap</a> 上，它是一个可视化接口管理工具 通过分析接口结构，动态生成模拟数据，校验真实接口正确性， 围绕接口定义，通过一系列自动化工具提升我们的协作效率。<br>　　基础的vue项目结构是用 vue-cli 脚手架生成的，在 config 文件夹中新增了一个请求代理配置文件 proxy-config.js 。在 rep_server 文件夹的 config-rap.js 文件中配置项目ID =&gt; projectId,rap项目ID从  <script src="http://rapapi.org/rap.plugin.js?projectId=项目ID"></script>  中获取。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　近期在做 vue 单页项目，采用的开发方式是前后端分离的模式。后端只提供接口，前端负责数据获取与展现，接口文档写在 <a href="http://rapapi.org/org/index.do" target="_blank" rel="external">rap</a> 上，它是一个可视化接口管理工具 通过分析接口结构，动态生成模拟数据，校验真实接口正确性， 围绕接口定义，通过一系列自动化工具提升我们的协作效率。<br>　　基础的vue项目结构是用 vue-cli 脚手架生成的，在 config 文件夹中新增了一个请求代理配置文件 proxy-config.js 。在 rep_server 文件夹的 config-rap.js 文件中配置项目ID =&gt; projectId,rap项目ID从  <script src="http://rapapi.org/rap.plugin.js?projectId=项目ID"></script>  中获取。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/rap-projectId.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="技术点"><a href="#技术点" class="headerlink" title="技术点"></a>技术点</h2><p>　　node + express + vue</p>
 <h2 id="总体描述"><a href="#总体描述" class="headerlink" title="总体描述"></a>总体描述</h2><ul>
 <li>接口统一管理</li>
