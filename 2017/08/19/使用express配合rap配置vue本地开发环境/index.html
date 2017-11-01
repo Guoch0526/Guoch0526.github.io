@@ -25,7 +25,7 @@
 <meta property="og:url" content="http://www.vituyun.com/2017/08/19/使用express配合rap配置vue本地开发环境/index.html">
 <meta property="og:site_name" content="Guoch">
 <meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/express-vue-mock.jpg">
-<meta property="og:updated_time" content="2017-11-01T09:36:39.427Z">
+<meta property="og:updated_time" content="2017-11-01T10:05:46.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用express配合rap配置vue本地开发环境">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/express-vue-mock.jpg">
@@ -170,12 +170,12 @@
                 <div class="image-caption"></div>
             </figure>
 <a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　近期在做 vue 单页项目，采用的开发方式是前后端分离的模式。后端只提供接口，前端负责数据获取与展现，接口文档写在 <a href="http://rapapi.org/org/index.do" target="_blank" rel="external">rap</a> 上。不得不说现在这种开发方式大大提高了我们程序猿的效率。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　近期在做 vue 单页项目，采用的开发方式是前后端分离的模式。后端只提供接口，前端负责数据获取与展现，接口文档写在 <a href="http://rapapi.org/org/index.do" target="_blank" rel="external">rap</a> 上，它是一个可视化接口管理工具 通过分析接口结构，动态生成模拟数据，校验真实接口正确性， 围绕接口定义，通过一系列自动化工具提升我们的协作效率。<br>　　基础的vue项目结构是用 vue-cli 脚手架生成的，在 config 文件夹中新增了一个请求代理配置文件 proxy-config.js 。在 rep_server 文件夹的 config-rap.js 文件中配置项目ID =&gt; projectId,rap项目ID从  <script src="http://rapapi.org/rap.plugin.js?projectId=项目ID"></script>  中获取。</p>
 <h2 id="技术点"><a href="#技术点" class="headerlink" title="技术点"></a>技术点</h2><p>　　node + express + vue</p>
 <h2 id="总体描述"><a href="#总体描述" class="headerlink" title="总体描述"></a>总体描述</h2><ul>
-<li>[x] 接口统一管理</li>
-<li>[x] 支持跨域访问</li>
-<li>[x] mock 数据与测试环境分离</li>
+<li>接口统一管理</li>
+<li>支持跨域访问</li>
+<li>mock 数据与测试环境分离</li>
 </ul>
 <h2 id="项目运行"><a href="#项目运行" class="headerlink" title="项目运行"></a>项目运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">　　git <span class="built_in">clone</span> https://github.com/Guoch0526/vue-mock-demo.git</div><div class="line"></div><div class="line">　　<span class="built_in">cd</span> vue-mock-demo</div><div class="line"></div><div class="line">　　npm install</div><div class="line"></div><div class="line">　　// 安装好依赖之后,找到 rap_server 文件夹中的 config-rap.js, 替换为你的rap项目基本配置</div><div class="line">  </div><div class="line">　　// 接口统一写在 src/api-irls/index.js 中, 接着：</div><div class="line"></div><div class="line">　　npm run start</div><div class="line"></div><div class="line">　　大功告成</div></pre></td></tr></table></figure>
 <h2 id="项目总体结构"><a href="#项目总体结构" class="headerlink" title="项目总体结构"></a>项目总体结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">├── build                                       // webpack配置文件</div><div class="line">├── config                                      // 项目(代理)配置</div><div class="line">├── rap_server                                  // rap服务器配置</div><div class="line">├── src                                         // 资源目录</div><div class="line">│   ├── api-urls                                // 接口配置</div><div class="line">│   ├── assets                                  // 公共资源</div><div class="line">│   ├── components                              // 组件</div><div class="line">│   ├── router                                  // 页面路由</div><div class="line">│   ├── App.vue                                 // 页面入口文件</div><div class="line">│   ├── main.js                                 // 程序主入口</div><div class="line">├── package.json                                // 包</div><div class="line">├── index.html                                  // 入口html文件</div></pre></td></tr></table></figure>
@@ -339,7 +339,7 @@
 
         <p>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
