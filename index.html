@@ -144,7 +144,7 @@
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-12-25 20:44:18" datetime="2017-12-25T12:44:18.000Z"  itemprop="datePublished">2017-12-25</time>
+        <time class="post-time" title="2017-12-28 20:44:18" datetime="2017-12-28T12:44:18.000Z"  itemprop="datePublished">2017-12-28</time>
 
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/node-js/">node.js</a></li></ul>
@@ -158,7 +158,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/12/25/前后端分离实践/">前后端分离实践</a>
+      <a class="post-title-link" href="/2017/12/28/前后端分离实践/">前后端分离实践</a>
     </h3>
   
 
@@ -168,68 +168,19 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <p>　　转眼又到了年底，也是时候做一个年终总结了。关于前后端分离这个概念，在之前就有所了解，但是还未真正付诸实践。终于在今年花了几个月的时间顺利的把前后端分离实践在公司的项目中。</p>
-<h2 id="认识前后端分离"><a href="#认识前后端分离" class="headerlink" title="认识前后端分离"></a>认识前后端分离</h2><p>　　在传统的开发模式下，根据我们以往的认知，可能以为前后端分离的界限就是已浏览器为标准。浏览器中显示的就是前端，而把运行在服务器中的，为前端提供业务逻辑和数据准备的所有代码作为后端，这样来进行一个前后端的划分。但是实际上的前后端分离不是这样，在开发过程中前后端的开发工作的分工就是前后端分离。在开发阶段，前后端工程师约定好数据交互接口，实现并行开发和测试；在运行阶段前后端分离模式需要对web应用进行分离部署，前后端之前使用HTTP或者其他协议进行交互请求。<br>我们可以从以下几个方面来理解前后端分离：</p>
-<ol>
-<li>交互形式</li>
-<li>代码组织方式</li>
-<li>开发模式</li>
-<li>数据接口规范流程</li>
-</ol>
-<h3 id="一、交互形式"><a href="#一、交互形式" class="headerlink" title="一、交互形式"></a>一、交互形式</h3><p>　　在前后端分离的开发模式下，前端与后端的交互只需要借助 RESTful api 来进行一个数据的请求就行了，大大地降低了前后端交流的成本。如下图所示：</p>
-<figure class="image-bubble">
+        <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/restful.png" alt="" title="">
+                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/pexels-photo.jpeg" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<h3 id="二、代码组织方式"><a href="#二、代码组织方式" class="headerlink" title="二、代码组织方式"></a>二、代码组织方式</h3><p>　　在以前的开发模式中，前后端代码可能是耦合在一起的，这样称为前后端未分离情况。公司之前未实现前后端的分离时，前后端代码分别在两个库中进行管理，但是开发模式还不算是前后端分离模式，只能说是半分离模式。前后端分离模式在代码组织形式上有以下两种:</p>
-<ul>
-<li><p>半分离：前后端共用一个代码库，但是代码分别存放在两个工程中。后端不关心或很少 关心前端元素的输出情况，前端不能独立进行开发和测试，项目中缺乏前后端 交互的测试用例。</p>
-</li>
-<li><p>分离：前后端代码库分离，前端代码中有可以进行Mock测试(通过构造虚拟测试对象以简化测试环境的方法)的伪后端，能支持前端的独立开发和测试。而后端代码中除了功能实现外，还有着详细的测试用例，以保证API的可用性，降低集成风险。</p>
-</li>
-</ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/code-module.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h3 id="三、开发模式"><a href="#三、开发模式" class="headerlink" title="三、开发模式"></a>三、开发模式</h3><p>　　在进行开发模式重构之前，前端人员负责页面的编写，逻辑的实现，并且在页面中内嵌一些后端提供的模板变量以及操作逻辑。待后端也开发的差不多之后，前端代码再经过后端人员处理编译成脚本文件，然后一起打包部署到服务器中，最后才进行一个测试工作。测试过程中如果发现问题，则需要：前端返工 =&gt; 后端返工 =&gt; 代码打包部署 =&gt; 测试完成 =&gt; 上线。</p>
-<p>　　重构之后，前端开发人员的工作就简化许多了，只需要负责页面结构, 样式以及逻辑的编写。前端页面所需要的数据都是通过 HTTP 请求来获取，在开发之前先约定好接口数据格式，这样后端也只需要专注于 RESTful 接口的开发。流程如下所示：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/work-flow.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h3 id="四、数据接口规范流程"><a href="#四、数据接口规范流程" class="headerlink" title="四、数据接口规范流程"></a>四、数据接口规范流程</h3><p>　　在开发期间前后端共同商定好数据接口的交互形式和数据格式。然后实现前后端的并行开发，其中前端工程师在开发完成之后可以独自进行mock测试(mock数据方法在我博客中有实现)，而后端也可以使用接口测试平台进行接口自测，然后前后端一起进行功能联调并校验格式，最终进行自动化测试。如下图：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/mock-flow.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="前后端分离的好处"><a href="#前后端分离的好处" class="headerlink" title="前后端分离的好处"></a>前后端分离的好处</h2><p>　　通过这次的前后端分离实践，我个人感觉有以下几个分离之后有以下几个好处：</p>
-<ul>
-<li><p>提高了开发人员的专注度： 通过前后端分离，前端人员只需要负责前端，后端开发人员只需要负责后端，前后端数据交互通过接口来完成，也不需要套页面以及后端模板变量了，极大地提高了开发人员的专注度，有利于开发人员做到专注专精，开发能力必然会有所提升。</p>
-</li>
-<li><p>提升了开发效率： 前后端分离以后，可以实现前后端代码的解耦，只要前后端沟通约定好应用所需接口以及接口参数，便可以开始并行开发，无需等待对方的开发工作结束。与此同时，即使需求发生变更，只要接口与数据格式不变，后端开发人员就不需要修改代码，只要前端进行变动即可。</p>
-</li>
-<li><p>增强代码可维护性： 前后端分离后，应用的代码不再是前后端混合，只有在运行期才会有调用依赖关系。</p>
-</li>
-</ul>
-<h2 id="前后端分离与服务端渲染"><a href="#前后端分离与服务端渲染" class="headerlink" title="前后端分离与服务端渲染"></a>前后端分离与服务端渲染</h2><p>　　在这次的项目重构中，主要涉及了两种模式的项目。一类是不需要考虑页面 SEO 的， 还有就是需要考虑 SEO 的。因为项目中使用的主要技术是 vue 全家桶，需要考虑 SEO 的话就涉及到了服务端渲染问题。服务端渲染这方面有了解过 nuxt.js 这个工具，在我们的项目实现服务端渲染还是在 node 中间层做了一个处理。比如有一个场景是访问文章页：在访问某个文章的时候，node 中间层接收到这个请求的文章 id ，知道这个需要是服务端渲染的页面，再转发到后端，后端返回渲染好的 html 文件给 node 中间层， node 中间层再将渲染好的 html 文件返回给浏览器，浏览器再将其显示出来，这样就实现了服务端的渲染。</p>
-
+<p>　　转眼又到了年底，也是时候做一个年终总结了。关于前后端分离这个概念，在之前就有所了解，但是还未真正付诸实践。终于在今年花了几个月的时间顺利的把前后端分离实践在公司的项目中。</p>
+<h2 id="认识前后端分离"><a href="#认识前后端分离" class="headerlink" title="认识前后端分离"></a>认识前后端分离</h2><p>　　在传统的开发模式下，根据我们以往的认知，可能以为前后端分离的界限就是已浏览器为标准。浏览器中显示的就是前端，而把运行在服务器中的，为前端提供业务逻辑和数据准备的所有代码作为后端，这样来进行一个前后端的划分。<br>
     
 
-        <a href="/2017/12/25/前后端分离实践/" class="post-more waves-effect waves-button">
-            閱讀全文…
+        <a href="/2017/12/28/前后端分离实践/" class="post-more waves-effect waves-button">
+            Continue reading...
         </a>
     </div>
     
@@ -276,7 +227,7 @@
     
 
         <a href="/2017/08/19/使用express配合rap配置vue本地开发环境/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -323,7 +274,7 @@
     
 
         <a href="/2017/04/23/gulp常用插件学习总结/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -370,7 +321,7 @@
     
 
         <a href="/2017/01/18/node.js实现简易爬虫程序/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -413,7 +364,7 @@
     
 
         <a href="/2016/12/09/jquery中extend函数实现解析/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -455,7 +406,7 @@
     
 
         <a href="/2016/12/06/alloy-finger-源码注释/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -502,7 +453,7 @@
     
 
         <a href="/2016/11/24/HTTP-Status-codes/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -544,7 +495,7 @@
     
 
         <a href="/2016/11/05/babel/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -585,7 +536,7 @@
     
 
         <a href="/2016/09/20/理解javascript中的this/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -626,7 +577,7 @@
     
 
         <a href="/2016/09/02/javascript闭包浅析/" class="post-more waves-effect waves-button">
-            閱讀全文…
+            Continue reading...
         </a>
     </div>
     
@@ -663,7 +614,7 @@
 
         <p>
             
-            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
