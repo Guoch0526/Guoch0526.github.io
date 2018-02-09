@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/cache.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/http-cache1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/http-cache2.png">
-<meta property="og:updated_time" content="2018-02-09T02:19:01.785Z">
+<meta property="og:updated_time" content="2018-02-09T02:21:13.432Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="缓存机制学习">
 <meta name="twitter:description" content="最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。
@@ -155,7 +155,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#缓存策略方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">缓存策略方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、浏览器缓存"><span class="post-toc-number">2.</span> <span class="post-toc-text">一、浏览器缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地缓存阶段"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">本地缓存阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#协商缓存阶段"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">协商缓存阶段</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、服务器缓存"><span class="post-toc-number">3.</span> <span class="post-toc-text">二、服务器缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CDN缓存"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">CDN缓存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Combo服务"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Combo服务</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、HTML5-缓存"><span class="post-toc-number">4.</span> <span class="post-toc-text">三、HTML5 缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#离线存储manifest"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">离线存储manifest</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地存储localStorage"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">本地存储localStorage</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话存储sessionStorage"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">会话存储sessionStorage</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#缓存策略方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">缓存策略方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浏览器缓存"><span class="post-toc-number">2.</span> <span class="post-toc-text">浏览器缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地缓存阶段"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">本地缓存阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#协商缓存阶段"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">协商缓存阶段</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务器缓存"><span class="post-toc-number">3.</span> <span class="post-toc-text">服务器缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CDN缓存"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">CDN缓存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Combo服务"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Combo服务</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTML5-缓存"><span class="post-toc-number">4.</span> <span class="post-toc-text">HTML5 缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#离线存储manifest"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">离线存储manifest</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地存储localStorage"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">本地存储localStorage</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话存储sessionStorage"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">会话存储sessionStorage</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -189,7 +189,7 @@
                 <div class="image-caption"></div>
             </figure>
 <a id="more"></a>
-<h2 id="一、浏览器缓存"><a href="#一、浏览器缓存" class="headerlink" title="一、浏览器缓存"></a>一、浏览器缓存</h2><p>先来看下第一次进入页面的情况：<br><figure class="image-bubble">
+<h2 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h2><p>先来看下第一次进入页面的情况：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/http-cache1.png" alt="" title="">
@@ -237,7 +237,7 @@
 <li>某些文件修改非常频繁，比如在秒以下的时间内进行修改，(比方说1s内修改了N次)，If-Modified-Since能检查到的粒度是s级的，这种修改无法判断(或者说UNIX记录MTIME只能精确到秒)；</li>
 <li>某些服务器不能精确的得到文件的最后修改时间</li>
 </ol>
-<h2 id="二、服务器缓存"><a href="#二、服务器缓存" class="headerlink" title="二、服务器缓存"></a>二、服务器缓存</h2><h3 id="CDN缓存"><a href="#CDN缓存" class="headerlink" title="CDN缓存"></a>CDN缓存</h3><p>CDN缓存，也叫网关缓存、反向代理缓存。浏览器先向CDN网关发起WEB请求，网关服务器后面对应着一台或多台负载均衡源服务器，会根据它们的负载请求，动态地请求转发到合适的源服务器上。</p>
+<h2 id="服务器缓存"><a href="#服务器缓存" class="headerlink" title="服务器缓存"></a>服务器缓存</h2><h3 id="CDN缓存"><a href="#CDN缓存" class="headerlink" title="CDN缓存"></a>CDN缓存</h3><p>CDN缓存，也叫网关缓存、反向代理缓存。浏览器先向CDN网关发起WEB请求，网关服务器后面对应着一台或多台负载均衡源服务器，会根据它们的负载请求，动态地请求转发到合适的源服务器上。</p>
 <p>CDN缓存策略：<br>CDN边缘节点缓存策略因服务商不同而不同，但一般都会遵循http标准协议，通过http响应头中的Cache-control: max-age的字段来设置CDN边缘节点数据缓存时间</p>
 <ol>
 <li>当客户端向CDN节点请求数据时，CDN节点会判断缓存数据是否过期，若缓存数据并没有过期，则直接将缓存数据返回给客户端；否则，CDN节点就会向源站发出回源请求（back to the source request），从源站拉取最新数据，更新本地缓存，并将最新数据返回给客户端</li>
@@ -261,7 +261,7 @@
 <li>浏览器有url长度限制，因此不能无限制的合并资源</li>
 <li>如果用户在网站内有公共资源的两个页面间跳转访问，由于两个页面的combo的url不一样导致用户不能利用浏览器缓存来加快对公共资源的访问速度。如果combo的url中任何一个文件发生改变，都会导致整个url缓存失效，从而导致浏览器缓存利用率降低</li>
 </ul>
-<h2 id="三、HTML5-缓存"><a href="#三、HTML5-缓存" class="headerlink" title="三、HTML5 缓存"></a>三、HTML5 缓存</h2><h3 id="离线存储manifest"><a href="#离线存储manifest" class="headerlink" title="离线存储manifest"></a>离线存储manifest</h3><p>根据 <a href="https://developer.mozilla.org/zh-CN/Apps/Build/Manifest" target="_blank" rel="external">MDN</a> 文档，该特性已经从 Web 标准中删除。推荐使用Service Workers代替，但是目前Service Workers 仍然有兼容性问题，所以应用程序缓存（ApplicationCache）仍然是目前进行离线存储的最好的方式</p>
+<h2 id="HTML5-缓存"><a href="#HTML5-缓存" class="headerlink" title="HTML5 缓存"></a>HTML5 缓存</h2><h3 id="离线存储manifest"><a href="#离线存储manifest" class="headerlink" title="离线存储manifest"></a>离线存储manifest</h3><p>根据 <a href="https://developer.mozilla.org/zh-CN/Apps/Build/Manifest" target="_blank" rel="external">MDN</a> 文档，该特性已经从 Web 标准中删除。推荐使用Service Workers代替，但是目前Service Workers 仍然有兼容性问题，所以应用程序缓存（ApplicationCache）仍然是目前进行离线存储的最好的方式</p>
 <p><strong>优点</strong>：</p>
 <ul>
 <li>用户可离线访问你的应用，这对于无法随时保持联网状态的移动终端用户来说尤其重要</li>
@@ -435,7 +435,7 @@
 
         <p>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
         </p>
     </div>
     <div class="bottom">
