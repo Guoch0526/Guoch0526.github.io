@@ -20,43 +20,22 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="缓存机制学习最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。
-缓存策略方式
-                
-                    
-                    
-                
-                
-            
-一、浏览">
+    <meta name="description" content="最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。
+缓存策略方式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="缓存机制学习">
 <meta property="og:url" content="http://www.vituyun.com/2018/02/09/缓存机制学习/index.html">
 <meta property="og:site_name" content="Guoch">
-<meta property="og:description" content="缓存机制学习最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。
-缓存策略方式
-                
-                    
-                    
-                
-                
-            
-一、浏览">
+<meta property="og:description" content="最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。
+缓存策略方式">
 <meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/cache.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/http-cache1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/http-cache2.png">
-<meta property="og:updated_time" content="2018-02-09T02:15:07.032Z">
+<meta property="og:updated_time" content="2018-02-09T02:19:01.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="缓存机制学习">
-<meta name="twitter:description" content="缓存机制学习最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。
-缓存策略方式
-                
-                    
-                    
-                
-                
-            
-一、浏览">
+<meta name="twitter:description" content="最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。
+缓存策略方式">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/cache.png">
     
     <link rel="shortcut icon" href="/img/favicon.ico">
@@ -176,7 +155,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#缓存机制学习"><span class="post-toc-number">1.</span> <span class="post-toc-text">缓存机制学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#缓存策略方式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">缓存策略方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、浏览器缓存"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">一、浏览器缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地缓存阶段"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">本地缓存阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#协商缓存阶段"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">协商缓存阶段</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、服务器缓存"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">二、服务器缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CDN缓存"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">CDN缓存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Combo服务"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">Combo服务</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、HTML5-缓存"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">三、HTML5 缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#离线存储manifest"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">离线存储manifest</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地存储localStorage"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">本地存储localStorage</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话存储sessionStorage"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">会话存储sessionStorage</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#缓存策略方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">缓存策略方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、浏览器缓存"><span class="post-toc-number">2.</span> <span class="post-toc-text">一、浏览器缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地缓存阶段"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">本地缓存阶段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#协商缓存阶段"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">协商缓存阶段</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、服务器缓存"><span class="post-toc-number">3.</span> <span class="post-toc-text">二、服务器缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CDN缓存"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">CDN缓存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Combo服务"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Combo服务</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、HTML5-缓存"><span class="post-toc-number">4.</span> <span class="post-toc-text">三、HTML5 缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#离线存储manifest"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">离线存储manifest</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地存储localStorage"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">本地存储localStorage</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#会话存储sessionStorage"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">会话存储sessionStorage</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -201,7 +180,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="缓存机制学习"><a href="#缓存机制学习" class="headerlink" title="缓存机制学习"></a>缓存机制学习</h1><p>最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。</p>
+            <p>最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。</p>
 <h2 id="缓存策略方式"><a href="#缓存策略方式" class="headerlink" title="缓存策略方式"></a>缓存策略方式</h2><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -209,6 +188,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+<a id="more"></a>
 <h2 id="一、浏览器缓存"><a href="#一、浏览器缓存" class="headerlink" title="一、浏览器缓存"></a>一、浏览器缓存</h2><p>先来看下第一次进入页面的情况：<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -343,7 +323,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2018/02/09/缓存机制学习/&title=《缓存机制学习》 — Guoch&source=爱生活，爱前端，爱coding" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2018/02/09/缓存机制学习/&title=《缓存机制学习》 — Guoch&source=最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。
+..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -454,7 +435,7 @@
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -487,7 +468,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2018/02/09/缓存机制学习/&title=《缓存机制学习》 — Guoch&source=爱生活，爱前端，爱coding" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.vituyun.com/2018/02/09/缓存机制学习/&title=《缓存机制学习》 — Guoch&source=最近在看《HTTP权威指南》一书，在其中说到了 HTTP 的缓存策咯。由于缓存策咯有很多种方式来实现，在查阅资料后我便决定简单记录一下，于是就有了此文。
+..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
