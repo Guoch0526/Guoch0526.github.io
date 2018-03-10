@@ -175,70 +175,10 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<p>　　前段时间看了一条新闻：2018年7月起，Google Chrome将标记所有 HTTP 网站为不安全链接。此举有望能够进一步提醒站长和用户所访问的网站是不安全的，进一步推动 HTTPS 的升级。下面先来了解下有关 HTTP 与 HTTPS 的相关概念。</p>
-<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>　　MDN 中的介绍如下：超文本传输协议（HTTP）是用于传输诸如HTML的超媒体文档的应用层协议。它被设计用于Web浏览器和Web服务器之间的通信，但它也可以用于其他目的。 HTTP遵循经典的客户端-服务端模型，客户端打开一个连接以发出请求，然后等待它收到服务器端响应。 HTTP是无状态协议，意味着服务器不会在两个请求之间保留任何数据（状态）。虽然通常基于TCP / IP层，但可以在任何可靠的传输层上使用;也就是说，一个不会静默丢失消息的协议，如UDP。</p>
-<h3 id="HTTP-的缺点"><a href="#HTTP-的缺点" class="headerlink" title="HTTP 的缺点"></a>HTTP 的缺点</h3><ul>
-<li>通信使用明文(不加密)，内容可能会被窃听</li>
-<li>不验证通信方的身份，有可能会遭遇伪装</li>
-<li>无法验证报文的完整性，因此报文有可能已遭篡改</li>
-</ul>
-<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>　　HTTPS 的出现就是为了解决 HTTP 存在的以上问题，可以这样认为：</p>
-<pre><code>HTTPS = HTTP + 加密 + 认证 + 完整性保护 
-</code></pre><p>　　HTTPS 并不是应用层的一种新协议，只是 HTTP 通信接口部分用 SSL(安全套接层) 和 TLS(安全传输层协议)协议代替而已。通常，HTTP 直接和 TCP 通信。当使用 SSL 时，则演变为先和 SSL 通信，再由 SSL 和 TCP 通信了。HTTPS 可以简单理解为身披 SSL 协议这层外壳的 HTTP。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/http-vs-https.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>　　<br>　　SSL 是独立于 HTTP 的协议，不光是 HTTP 协议，其他运行在应用层的 SMTP 和 Telnet 等协议均可配合 SSL 协议使用，可以说 SSL 协议是当今世界应用最为广泛的网络安全技术。
-　　</p>
-<h3 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h3><p>　　要理解 SSL，需要先了解一些加密算法，主要有 : 对称加密算法(Symmetric Cryptography)和非对称加密算法(Asymmetric Cryptography)
-　　</p>
-<h4 id="对称加密算法-Symmetric-Cryptography"><a href="#对称加密算法-Symmetric-Cryptography" class="headerlink" title="对称加密算法(Symmetric Cryptography)"></a>对称加密算法(Symmetric Cryptography)</h4><p>　　对称加密是最快速、最简单的一种加密方式，加密（encryption）与解密（decryption）用的是同样的密钥（secret key）。对称加密有很多种算法，由于它效率很高，所以被广泛使用在很多加密协议的核心当中。</p>
-<p>　　对称加密通常使用的是相对较小的密钥，一般小于256bit。因为密钥越大，加密越强，但加密与解密的过程越慢。如果你只用1bit来做这个密钥，那黑客们可以先试着用0来解密，不行的话就再用1解；但如果你的密钥有1 MB大，黑客们可能永远也无法破解，但加密和解密的过程要花费很长的时间。密钥的大小要做好一个权衡：既要照顾到安全性，也要照顾到效率。</p>
-<p>　　对称加密算法存在的问题是：由于加密与解密用的是同样的密钥，那么密钥要如何安全的转交呢？
-　　</p>
-<h4 id="非对称加密算法-Asymmetric-Cryptography"><a href="#非对称加密算法-Asymmetric-Cryptography" class="headerlink" title="非对称加密算法(Asymmetric Cryptography)"></a>非对称加密算法(Asymmetric Cryptography)</h4><p>　　非对称加密为数据的加密与解密提供了一个非常安全的方法，它使用了一对密钥。公钥（public key）和私钥（private key）。私钥只能由一方安全保管，不能外泄，而公钥则可以发给任何请求它的人。非对称加密使用这对密钥中的一个进行加密，而解密则需要另一个密钥。</p>
-<p>　　比如，你向银行请求公钥，银行将公钥发给你，你使用公钥对消息加密，那么只有私钥的持有人–银行才能对你的消息解密。与对称加密不同的是，银行不需要将私钥通过网络发送出去，因此安全性大大提高。</p>
-<p>　　非对称加密也存在一些问题：我们一定能确认上面所接收到的公钥就是指定的银行发出的吗？答案明显是不能确定。所以还需要对该公钥进行数字证书认证机构(CA, Certificate Authority) 认证才行。同时对比对称加密来说，非对称加密的速度明显要慢了许多。
-　　</p>
-<h4 id="数字证书认证机构-CA-Certificate-Authority-认证过程"><a href="#数字证书认证机构-CA-Certificate-Authority-认证过程" class="headerlink" title="数字证书认证机构(CA, Certificate Authority) 认证过程"></a>数字证书认证机构(CA, Certificate Authority) 认证过程</h4><ol>
-<li>服务器把自己的公开密钥 A 登录至数字证书认证机构</li>
-<li>数字证书认证机构用自己的私有密钥向服务器的公开密钥 A 签署数字签名并颁发公钥证书 B</li>
-<li>客户端拿到服务器的公钥证书 B 之后，用数字证书认证机构的公钥，向数字证书认证机构验证公钥证书上的数字签名，以确认服务器的公开密钥 A 的真实性</li>
-<li>使用服务器的公开密钥 A 对客户端的密钥 C 进行加密后发送</li>
-<li>服务器用自己的私有密钥进行解密，拿到 客户端的密钥 C </li>
-<li>之后客户端和服务器使用对称加密 (客户端的密钥 C) 进行报文的加密传输</li>
-</ol>
-<p>　　通过这一过程，就能解决对称加密以及非对称加密中存在的问题，同时能结合两种加密方式的优点。这里还有一个点需要注意的是，多数浏览器会预先在其内部植入常用数字证书认证机构的公钥。
-　　</p>
-<h3 id="HTTPS-的安全通信过程"><a href="#HTTPS-的安全通信过程" class="headerlink" title="HTTPS 的安全通信过程"></a>HTTPS 的安全通信过程</h3><p>　　HTTPS 采用对称加密和非对称加密的混合加密机制。假设有客户端与服务器要进行通信，基本过程如下：<br>　　<br><img src="https://raw.githubusercontent.com/Guoch0526/Guoch0526.github.io/master/images/https-process.png" alt=""></p>
-<ol>
-<li>客户端通过发送Client Hello报文开始SSL通信。报文中包含客户端支持的SSL的指定版本、加密组件（Cipher Suite）列表（所使用的加密算法及密钥长度等）;</li>
-<li>服务器可进行SSL通信时，会以Server Hello报文作为应答。和客户端一样，在报文中包含SSL版本以及加密组件。服务器的加密组件内容是从接收到的客户端加密组件内筛选出来的;</li>
-<li>之后服务器发送Certificate报文。报文中包含公开密钥证书;</li>
-<li>最后服务器发送Server Hello Done报文通知客户端，最初阶段的SSL握手协商部分结束;</li>
-<li>SSL第一次握手结束之后，客户端以Client Key Exchange报文作为回应。报文中包含通信加密中使用的一种被称为Pre-master secret的随机密码串。该报文已用步骤3中的公开密钥进行加密;</li>
-<li>接着客户端继续发送Change Cipher Spec报文。该报文会提示服务器，在此报文之后的通信会采用Pre-master secret密钥加密;</li>
-<li>客户端发送Finished报文。该报文包含连接至今全部报文的整体校验值。这次握手协商是否能够成功，要以服务器是否能够正确解密该报文作为判定标准;</li>
-<li>服务器同样发送Change Cipher Spec报文;</li>
-<li>服务器同样发送Finished报文;</li>
-<li>服务器和客户端的Finished报文交换完毕之后，SSL连接就算建立完成。当然，通信会受到SSL的保护。从此处开始进行应用层协议的通信，即发送HTTP请求;</li>
-<li>应用层协议通信，即发送HTTP响应;</li>
-<li>最后由客户端断开连接。断开连接时，发送close_notify报文。上图做了一些省略，这步之后再发送TCP FIN报文来关闭与TCP的通信.</li>
-</ol>
-<h3 id="HTTPS-存在的问题"><a href="#HTTPS-存在的问题" class="headerlink" title="HTTPS 存在的问题"></a>HTTPS 存在的问题</h3><p>　　当使用 SSL 时，在服务器和客户端都需要进行加密和解密的运算处理，比起 HTTP 会更多地消耗服务器和客户端的硬件资源，导致负载增强，同时处理速度会变慢。不过我们可以使用 SSL 加速器这种（专用服务器）硬件来改善该问题。</p>
-<p>　　同时，也并不是所有通信都需要使用 HTTPS。如果是非敏感信息则使用 HTTP 通信，只有在包含个人信息等敏感数据时，才利用 HTTPS 加密通信。</p>
-<p>　　要进行 HTTPS 通信，证书是必不可少的。而使用的证书必须向认证机构（CA）购买，而且价格还是有点高的。免费的 HTTPS 证书也有，在国内阿里云和腾讯云都有一年免费期限可以用，国外也有很多。</p>
-<p>参考文档：</p>
-<p>　　《图解 HTTP》<br>　　[<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/HTTP" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Glossary/HTTP</a>]<br>　　[<a href="http://www.cnblogs.com/jfzhu/p/4020928.html" target="_blank" rel="external">http://www.cnblogs.com/jfzhu/p/4020928.html</a>]</p>
-
     
 
         <a href="/2018/03/05/HTTPS学习/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -286,7 +226,7 @@
     
 
         <a href="/2018/02/09/缓存机制学习/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -335,7 +275,7 @@
     
 
         <a href="/2017/12/28/前后端分离实践/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -382,7 +322,7 @@
     
 
         <a href="/2017/08/19/使用express配合rap配置vue本地开发环境/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -426,7 +366,7 @@
     
 
         <a href="/2017/07/10/通过vue组件化方式实现常见动态图标/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -473,7 +413,7 @@
     
 
         <a href="/2017/04/23/gulp常用插件学习总结/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -520,7 +460,7 @@
     
 
         <a href="/2017/01/18/node.js实现简易爬虫程序/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -563,7 +503,7 @@
     
 
         <a href="/2016/12/09/jquery中extend函数实现解析/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -605,7 +545,7 @@
     
 
         <a href="/2016/12/06/alloy-finger-源码注释/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -652,7 +592,7 @@
     
 
         <a href="/2016/11/24/HTTP-Status-codes/" class="post-more waves-effect waves-button">
-            阅读全文…
+            Continue reading...
         </a>
     </div>
     
@@ -689,7 +629,7 @@
 
         <p>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
